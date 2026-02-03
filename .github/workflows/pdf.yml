@@ -1,4 +1,4 @@
-name: Build CV (YAML → LaTeX → PDF)
+name: Build CV (YAML → LaTeX → PDF) and commit
 
 on:
   push:
@@ -14,41 +14,56 @@ permissions:
   contents: write
 
 jobs:
-  build-pdf:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          # We don't need full history for a single PDF commit
-          fetch-depth: 1 
+          fetch-depth: 0
+          persist-credentials: true
 
-      - name: Set up Pandoc
-        uses: pandoc/actions-setup@v1
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc curl
 
-      - name: Set up Tectonic
-        uses: Wandmalfarbe/setup-tectonic@v1
-        with:
-          github-token: ${{ github.token }}
+      - name: Install Tectonic
+        run: |
+          # scarica il binario nella dir corrente
+          curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
+          # sposta in /usr/local/bin così è nel PATH
+          sudo mv tectonic /usr/local/bin/tectonic
+          tectonic --version
 
-      - name: Cache Tectonic packages
+      - name: Cache Tectonic
         uses: actions/cache@v4
         with:
           path: ~/.cache/Tectonic
-          key: tectonic-${{ runner.os }}-${{ hashFiles('templates/cv.latex') }}
-          restore-keys: |
-            tectonic-${{ runner.os }}-
+          key: tectonic-${{ runner.os }}-v1
 
-      - name: Build PDF
+      - name: Build TEX (debug)
         run: |
-          # Build directly to the root to avoid extra copy steps
+          mkdir -p build
+          pandoc --template ./templates/cv.latex \
+                 --metadata-file data/cv.yaml \
+                 -t latex -o build/cv.tex
+          head -n 80 build/cv.tex || true
+
+      - name: Build PDF (Pandoc → Tectonic)
+        run: |
           pandoc --template ./templates/cv.latex \
                  --metadata-file data/cv.yaml \
                  --pdf-engine=tectonic \
-                 -o cv.pdf
+                 -o build/cv.pdf
 
-      - name: Commit and push PDF
+      - name: Copy to repo root
+        run: cp build/cv.pdf cv.pdf
+
+      - name: Commit PDF
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update cv.pdf from YAML [skip ci]"
           file_pattern: "cv.pdf"
+          branch: ${{ github.ref_name }}
+          push_options: '--force-with-lease'
