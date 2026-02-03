@@ -57,12 +57,12 @@ projects:
     stack: "Java · Java RMI · Socket · Java FX GUI · MVC pattern"
     summary: "Java client-server implementation of the board game Galaxy Trucker using RMI and sockets, with JavaFX GUI and MVC architecture. Team project focused on networking, concurrency, and software design."
   - name: "Automated Portfolio & CV"
-      stack: "GitHub Actions · Pandoc · Tectonic · Cloudflare Pages"
-      summary: "A CI/CD pipeline that automatically generates my web portfolio (HTML/CSS) and professional CV (LaTeX/PDF) from a single YAML source. It ensures data consistency across formats and automates deployment to my custom domain."
-      links:
-        - label: "Repo"
-          url: "https://github.com/LorenzoDOrtona/cv"
-          new_tab: true
+    stack: "GitHub Actions · Pandoc · Tectonic · Cloudflare Pages"
+    summary: "A CI/CD pipeline that automatically generates my web portfolio (HTML/CSS) and professional CV (LaTeX/PDF) from a single YAML source. It ensures data consistency across formats and automates deployment to my custom domain."
+    links:
+      - label: "Repo"
+        url: "https://github.com/LorenzoDOrtona/cv"
+        new_tab: true
   - name: "ZoneFlow"
     stack: "HCI · UX Research · Figma · HTML · CSS "
     summary: "Human-centered design project focused on helping students discover and coordinate public study spaces. Team-based work covering user research, personas, wireframing, prototyping, usability testing, and iterative design."
