@@ -56,14 +56,18 @@ projects:
   - name: "Galaxy Trucker"
     stack: "Java · Java RMI · Socket · Java FX GUI · MVC pattern"
     summary: "Java client-server implementation of the board game Galaxy Trucker using RMI and sockets, with JavaFX GUI and MVC architecture. Team project focused on networking, concurrency, and software design."
-  - name: "Portfolio Site"
-    stack: "Github Actions"
-    summary: "Personal portfolio and CV automatically generated from a YAML source via GitHub Actions. Public artifacts are built from a private data repository, ensuring separation between content and sensitive data."
+  - name: "Automated Portfolio & CV"
+      stack: "GitHub Actions · Pandoc · Tectonic · Cloudflare Pages"
+      summary: "A CI/CD pipeline that automatically generates my web portfolio (HTML/CSS) and professional CV (LaTeX/PDF) from a single YAML source. It ensures data consistency across formats and automates deployment to my custom domain."
+      links:
+        - label: "Repo"
+          url: "https://github.com/LorenzoDOrtona/cv"
+          new_tab: true
   - name: "ZoneFlow"
     stack: "HCI · UX Research · Figma · HTML · CSS "
     summary: "Human-centered design project focused on helping students discover and coordinate public study spaces. Team-based work covering user research, personas, wireframing, prototyping, usability testing, and iterative design."
     links:
-        - label: "Figma demo"
+        - label: "Figma Demo"
           url: "https://www.figma.com/proto/G4G4y2kwpZ3Rn74cqsDzF3/PDL-Labs---ZoneFlow?node-id=2141-1111&p=f&t=8pzgX4MEn2P5693i-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2141%3A1098&show-proto-sidebar=1"
           new_tab: true
         - label: "Repo"
