@@ -1,0 +1,54 @@
+name: Build CV (YAML → LaTeX → PDF)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'data/**/*.yml'
+      - 'data/**/*.yaml'
+      - 'templates/**'
+      - '.github/workflows/build-pdf.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # We don't need full history for a single PDF commit
+          fetch-depth: 1 
+
+      - name: Set up Pandoc
+        uses: pandoc/actions-setup@v1
+
+      - name: Set up Tectonic
+        uses: Wandmalfarbe/setup-tectonic@v1
+        with:
+          github-token: ${{ github.token }}
+
+      - name: Cache Tectonic packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Tectonic
+          key: tectonic-${{ runner.os }}-${{ hashFiles('templates/cv.latex') }}
+          restore-keys: |
+            tectonic-${{ runner.os }}-
+
+      - name: Build PDF
+        run: |
+          # Build directly to the root to avoid extra copy steps
+          pandoc --template ./templates/cv.latex \
+                 --metadata-file data/cv.yaml \
+                 --pdf-engine=tectonic \
+                 -o cv.pdf
+
+      - name: Commit and push PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update cv.pdf from YAML [skip ci]"
+          file_pattern: "cv.pdf"
