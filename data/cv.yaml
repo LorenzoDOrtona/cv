@@ -63,7 +63,7 @@ projects:
     stack: "HCI · UX Research · Figma · HTML · CSS "
     summary: "Human-centered design project focused on helping students discover and coordinate public study spaces. Team-based work covering user research, personas, wireframing, prototyping, usability testing, and iterative design."
     links:
-        - label: "Demo"
+        - label: "Figma demo"
           url: "https://www.figma.com/proto/G4G4y2kwpZ3Rn74cqsDzF3/PDL-Labs---ZoneFlow?node-id=2141-1111&p=f&t=8pzgX4MEn2P5693i-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2141%3A1098&show-proto-sidebar=1"
           new_tab: true
         - label: "Repo"
