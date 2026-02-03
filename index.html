@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lorenzo D’Ortona — Portfolio</title>
+  <meta name="description" content="Portfolio di Lorenzo
+D’Ortona: progetti, esperienza e contatti. Computer Engineering student
+· Cybersecurity &amp; Backend Development" />
+  <style>
+    :root{
+      --bg:#0b0b0c;--fg:#f4f4f5;--muted:#a1a1aa;--acc:#7c3aed;--card:#111113;--border:#232326;
+      --max:1000px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--fg);text-decoration:none}
+    a:hover{color:var(--acc)}
+    header{position:sticky;top:0;background:rgba(11,11,12,.6);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border)}
+    nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    nav .brand{font-weight:700;letter-spacing:.4px}
+    nav .links a{margin-left:18px;font-size:.95rem;color:var(--muted)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:40px 0}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:.8rem}
+    h1{font-size:2.5rem;line-height:1.15;margin:14px 0}
+    p.lead{color:var(--muted);max-width:65ch}
+    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
+    .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--acc),#2563eb);color:white}
+
+    .section{padding:24px 0}
+    .section h2{font-size:1.4rem;margin:0 0 10px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
+    .card h3{margin:0 0 6px;font-size:1.05rem}
+    .meta{color:var(--muted);font-size:.9rem}
+
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .list{margin:0;padding-left:18px;color:var(--muted)}
+
+    footer{border-top:1px solid var(--border);margin-top:40px}
+    .foot{max-width:var(--max);margin:0 auto;padding:24px 20px;display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .about{grid-template-columns:1fr}
+    }
+    @media (max-width:600px){
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">Lorenzo D’Ortona</div>
+      <div class="links">
+        <a href="https://github.com/LorenzoDOrtona" target="_blank" rel="noreferrer">LorenzoDOrtona</a>
+        <a href="https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://leetcode.com/u/lorenzodortona/" target="_blank" rel="noreferrer">LeetCode</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="badge">Computer Engineering student · Cybersecurity
+&amp; Backend Development</span>
+        <h1>Build clean, fast, useful software.</h1>
+                            <p class="lead">Computer Engineering student
+focusing on cybersecurity, backend systems, and Linux-based
+environments.</p>
+                    <p class="lead">Detail-oriented problem solver with
+hands-on experience in Python, C, and Go, and a strong passion for
+building efficient, reliable systems.</p>
+                          <div class="cta">
+          <a class="btn primary" href="#progetti">View projects</a>
+          <a class="btn" href="mailto:contact@lorenzodortona.com">Email me</a>
+          <a class="btn" href="https://github.com/LorenzoDOrtona" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://leetcode.com/u/lorenzodortona/" target="_blank" rel="noreferrer">LeetCode</a>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <pre style="margin:0;white-space:pre-wrap;color:#e5e7eb"><code>package main
+
+// ongoing: Project Z, Homelab, Security notes
+func main() {
+    println("shipping > talking")
+}
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGETTI: SOLO SE ESISTE projects: NELLO YAML -->
+        <section class="section" id="progetti">
+      <h2>Personal projects</h2>
+      <div class="grid">
+                <article class="card">
+          <h3>Project Z — Ultimate Tic-Tac-Toe (ongoing)</h3>
+                    <div class="meta">Go · Docker · Kubernetes</div>
+                              <p>Ultimate Tic-Tac-Toe engine:
+distributed backend in Go, containerized deploy, focus on performance
+and DX.</p>
+                              <p>
+                          <a href="#" target="_blank" rel="noreferrer">Demo</a> · 
+                          <a href="https://github.com/LorenzoDOrtona" target="_blank" rel="noreferrer">Repo</a>          </p>
+                  </article>
+              </div>
+    </section>
+    
+
+    <!-- ABOUT + HIGHLIGHTS -->
+    <section class="section about" id="about">
+      <div>
+        <h2>About</h2>
+        <p>I'm Lorenzo D’Ortona, a <b>Computer Engineering student ·
+Cybersecurity &amp; Backend
+Development</b>. I care about clean design, practical security and building things that work well. I like open-source and learning by shipping.</p>
+      </div>
+      <div>
+        <h2>Highlights</h2>
+        <ul class="list">
+                                    <li>M.Sc. in computer Science and
+Engineering – Cybersecurity Track (in progress) — Politecnico di
+Milano (2025 – Present)</li>
+                          <li>B.Sc. in Computer Science and Engineering
+(Final grade: 99/110) — Politecnico di Milano (2022 – 2025)</li>
+                          <li>High School Diploma – Liceo Scientifico
+Scienze Applicate (100/100 cum laude) — Luigi di Savoia (2017 –
+2022)</li>
+                                            <li>Languages:  Italian
+(Native),  English (Advanced – TOEIC 920/990)</li>
+                                <li>Programming:  Python (advanced),  C
+(intermediate),  C++,  Go,  Java,  SQL</li>
+                                <li>Automation:  Selenium,  Python
+scripting,  Kubernetes (learning)</li>
+                                <li>Web:  HTML,  CSS</li>
+                  </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contatti">
+      <h2>Contact</h2>
+      <p class="meta">Based in Milano, Italia · Happy to chat 👇</p>
+      <p>
+        <a href="mailto:contact@lorenzodortona.com">contact@lorenzodortona.com</a>
+         · <a href="https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/" target="_blank" rel="noreferrer">LinkedIn</a>
+         · <a href="https://github.com/LorenzoDOrtona" target="_blank" rel="noreferrer">LorenzoDOrtona</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <span>© <span id="y"></span> Lorenzo D’Ortona</span>
+      <span><a href="/privacy">Privacy</a></span>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>$name$ — Portfolio</title>
+  <meta name="description" content="Portfolio di $name$: progetti, esperienza e contatti. $headline$" />
+  <style>
+    :root{
+      --bg:#0b0b0c;--fg:#f4f4f5;--muted:#a1a1aa;--acc:#7c3aed;--card:#111113;--border:#232326;
+      --max:1000px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--fg);text-decoration:none}
+    a:hover{color:var(--acc)}
+    header{position:sticky;top:0;background:rgba(11,11,12,.6);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border)}
+    nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    nav .brand{font-weight:700;letter-spacing:.4px}
+    nav .links a{margin-left:18px;font-size:.95rem;color:var(--muted)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:40px 0}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:.8rem}
+    h1{font-size:2.5rem;line-height:1.15;margin:14px 0}
+    p.lead{color:var(--muted);max-width:65ch}
+    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
+    .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--acc),#2563eb);color:white}
+
+    .section{padding:24px 0}
+    .section h2{font-size:1.4rem;margin:0 0 10px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
+    .card h3{margin:0 0 6px;font-size:1.05rem}
+    .meta{color:var(--muted);font-size:.9rem}
+
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .list{margin:0;padding-left:18px;color:var(--muted)}
+
+    footer{border-top:1px solid var(--border);margin-top:40px}
+    .foot{max-width:var(--max);margin:0 auto;padding:24px 20px;display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .about{grid-template-columns:1fr}
+    }
+    @media (max-width:600px){
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">$name$</div>
+      <div class="links">
+        $if(github)$<a href="$github.url$" target="_blank" rel="noreferrer">$github.label$</a>$endif$
+        $if(linkedin)$<a href="$linkedin.url$" target="_blank" rel="noreferrer">$linkedin.label$</a>$endif$
+        $if(leetcode)$<a href="$leetcode.url$" target="_blank" rel="noreferrer">$leetcode.label$</a>$endif$
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="badge">$headline$</span>
+        <h1>Build clean, fast, useful software.</h1>
+        $if(summary)$
+          $for(summary)$
+          <p class="lead">$summary$</p>
+          $endfor$
+        $endif$
+        <div class="cta">
+          <a class="btn primary" href="#progetti">View projects</a>
+          $if(public_email)$<a class="btn" href="mailto:$public_email$">Email me</a>$endif$
+          $if(github)$<a class="btn" href="$github.url$" target="_blank" rel="noreferrer">GitHub</a>$endif$
+          $if(linkedin)$<a class="btn" href="$linkedin.url$" target="_blank" rel="noreferrer">LinkedIn</a>$endif$
+          $if(leetcode)$<a class="btn" href="$leetcode.url$" target="_blank" rel="noreferrer">LeetCode</a>$endif$
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGETTI: SOLO SE ESISTE projects: NELLO YAML -->
+    $if(projects)$
+    <section class="section" id="progetti">
+      <h2>Personal projects</h2>
+      <div class="grid">
+        $for(projects)$
+        <article class="card">
+          <h3>$it.name$</h3>
+          $if(it.stack)$
+          <div class="meta">$it.stack$</div>
+          $endif$
+          $if(it.summary)$
+          <p>$it.summary$</p>
+          $endif$
+          $if(it.links)$
+          <p>
+            $for(it.links)$
+              <a href="$it.url$" $if(it.new_tab)$target="_blank" rel="noreferrer"$endif$>$it.label$</a>$sep$ · 
+            $endfor$
+          </p>
+          $endif$
+        </article>
+        $endfor$
+      </div>
+    </section>
+    $endif$
+
+
+    <!-- ABOUT + HIGHLIGHTS -->
+    <section class="section about" id="about">
+      <div>
+        <h2>About</h2>
+        <p>I'm $name$, a <b>$headline$</b>. I care about clean design, practical security and building things that work well. I like open-source and learning by shipping.</p>
+      </div>
+      <div>
+        <h2>Highlights</h2>
+        <ul class="list">
+          $if(education)$
+            $for(education)$
+              <li>$it.degree$ — $it.school$ ($it.period$)</li>
+            $endfor$
+          $endif$
+          $if(skills.languages)$
+            <li>Languages: $for(skills.languages)$ $it$$sep$, $endfor$</li>
+          $endif$
+          $if(skills.programming)$
+            <li>Programming: $for(skills.programming)$ $it$$sep$, $endfor$</li>
+          $endif$
+          $if(skills.automation)$
+            <li>Automation: $for(skills.automation)$ $it$$sep$, $endfor$</li>
+          $endif$
+          $if(skills.web)$
+            <li>Web: $for(skills.web)$ $it$$sep$, $endfor$</li>
+          $endif$
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contatti">
+      <h2>Contact</h2>
+      <p class="meta">Based in $location$ · Happy to chat 👇</p>
+      <p>
+        $if(public_email)$<a href="mailto:$public_email$">$public_email$</a>$endif$
+        $if(linkedin)$ · <a href="$linkedin.url$" target="_blank" rel="noreferrer">$linkedin.label$</a>$endif$
+        $if(github)$ · <a href="$github.url$" target="_blank" rel="noreferrer">$github.label$</a>$endif$
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <span>© <span id="y"></span> $name$</span>
+      <span><a href="/privacy">Privacy</a></span>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>

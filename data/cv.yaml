@@ -1,0 +1,96 @@
+name: "Lorenzo D’Ortona"
+headline: "Computer Engineering student · Cybersecurity & Backend Development"
+location: "Milano, Italia"
+public_email: "contact@lorenzodortona.com"
+github:   { url: "https://github.com/LorenzoDOrtona", label: "LorenzoDOrtona" }
+linkedin: { url: "https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/", label: "LinkedIn" }
+leetcode: { url: "https://leetcode.com/u/lorenzodortona/", label: "LeetCode" }
+
+summary:
+  - "Computer Engineering (Cybersecurity) · Backend & Distributed Systems · Linux-first"
+  - "Detail-oriented problem solver with hands-on experience in Python, C, and Java, and a strong passion for building efficient, reliable systems."
+
+
+education:
+  - degree: "M.Sc. in computer Science and Engineering – Cybersecurity Track (in progress)"
+    school: "Politecnico di Milano"
+    city: "Milano"
+    period: "2025 – Present"
+  - degree: "B.Sc. in Computer Science and Engineering (Final grade: 99/110)"
+    school: "Politecnico di Milano"
+    city: "Milano"
+    period: "2022 – 2025"
+  - degree: "High School Diploma – Liceo Scientifico Scienze Applicate (100/100 cum laude)"
+    school: "Luigi di Savoia"
+    city: "Chieti (Abruzzo)"
+    period: "2017 – 2022"
+
+experience:
+  - title: "Performance Engineer Analyst"
+    type: "Part-time (24h/week)"
+    company: "MOVIRI S.p.A."
+    city: "Milano"
+    period: "Feb 2025 – Sep 2025"
+    bullets:
+      - "Developed and updated Python integrations enabling communication between **Splunk** and **Dynatrace**."
+      - "Used **Selenium** for automation tasks and validation of performance workflows."
+      - "Improved monitoring workflows by automating key steps, reducing manual overhead."
+  - title: "Voting and active member"
+    company: "Politecnico Open Unix Labs (POuL)"
+    city: "Milano"
+    period: "Apr 2025 – Present"
+    bullets:
+      - "Active member of PoliMi’s Linux and open-source community."
+      - "Hands-on exploration of Linux systems, self-hosting, and open-source tooling."
+projects:
+  - name: "Tris Inception — Ultimate Tic-Tac-Toe (ongoing)"
+    stack: "Go · React · REST APIs"
+    summary: "Distributed Ultimate Tic-Tac-Toe engine with a Go backend and React frontend. The game state is maintained in-memory on the backend and synchronized with clients via REST-based polling, without relying on a database."
+    links:
+      - label: "Demo"
+        url: "https://tris-inception.onrender.com/"
+        new_tab: true
+      - label: "Repo"
+        url: "https://github.com/LorenzoDOrtona/Tris_Inception"
+        new_tab: true
+  - name: "Galaxy Trucker"
+    stack: "Java · Java RMI · Socket · Java FX GUI · MVC pattern"
+    summary: "Java client-server implementation of the board game Galaxy Trucker using RMI and sockets, with JavaFX GUI and MVC architecture. Team project focused on networking, concurrency, and software design."
+  - name: "Portfolio Site"
+    stack: "Github Actions"
+    summary: "Personal portfolio and CV automatically generated from a YAML source via GitHub Actions. Public artifacts are built from a private data repository, ensuring separation between content and sensitive data."
+  - name: "ZoneFlow"
+    stack: "HCI · UX Research · Figma · HTML · CSS "
+    summary: "Human-centered design project focused on helping students discover and coordinate public study spaces. Team-based work covering user research, personas, wireframing, prototyping, usability testing, and iterative design."
+    links:
+        - label: "Demo"
+          url: "https://www.figma.com/proto/G4G4y2kwpZ3Rn74cqsDzF3/PDL-Labs---ZoneFlow?node-id=2141-1111&p=f&t=8pzgX4MEn2P5693i-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2141%3A1098&show-proto-sidebar=1"
+          new_tab: true
+        - label: "Repo"
+          url: "https://github.com/LorenzoDOrtona/Progetto_HCI"
+          new_tab: true
+
+skills:
+  programming: ["Python (advanced)", "C (intermediate)", "C++", "Go", "Java", "SQL"]
+  automation: ["Selenium", "Python scripting", "Kubernetes (learning)"]
+  web: ["HTML", "CSS"]
+  languages: ["Italian (Native)", "English (Advanced – TOEIC 920/990)"]
+  core: ["Solid understanding of algorithms, data structures, and efficient software design.", "Analytical problem-solver focused on clean, maintainable code.", "Collaborative and proactive learner with strong communication."]
+
+awards:
+  - when: "2023"
+    title: "Angelini Industries Merit Award"
+    description: "Recognized as *Best Performing Student* for academic excellence (fifth year)."
+    link: "https://bestr.it/award/show/POesFfFbR-aHms2YddxMyg"
+  - when: "2022"
+    title: "Angelini Industries Merit Award"
+    description: "Recognized as *Best Performing Student* for academic excellence (fourth year)."
+    link: "https://bestr.it/award/show/POesFfFbR-aHms2YddxMyg"
+
+certifications:
+  - when: "2024"
+    name: "TOEIC English Test – Score: 920/990"
+  - when: "2024-01"
+    name: "CCNA: Introduction to Networks"
+  - when: "2022-03"
+    name: "Game Theory (PoliCollege – pre-admission, PoliMi)"

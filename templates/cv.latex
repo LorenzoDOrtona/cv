@@ -1,0 +1,143 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[margin=1.8cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{parskip}
+
+% --- Styling ---
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\baselinestretch}{1.03} % slightly tighter
+\setlength{\parindent}{0pt}
+\pagenumbering{gobble}
+\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=10pt}
+
+% Section formatting (clean, compact)
+\titleformat{\section}
+  {\large\bfseries\scshape}
+  {}
+  {0em}
+  {}
+  [\vspace{2pt}\titlerule]
+
+% Entry macro
+\newcommand{\entry}[4]{%
+  \textbf{#1} \hfill \textit{#4}\\
+  #2, #3
+}
+
+\begin{document}
+
+% --- HEADER ---
+\begin{center}
+{\LARGE \textbf{$name$}}\\[2pt]
+\textit{$headline$}\\[4pt]
+$if(location)$\faMapMarker*~$location$ \quad$endif$
+$if(email)$\faEnvelope~\href{mailto:$email$}{$email$} \quad$endif$
+$if(phone)$\faPhone~$phone$\\[2pt]$endif$
+$if(github)$\faGithub~\href{$github.url$}{$github.label$}$endif$
+$if(linkedin)$ \quad \faLinkedin~\href{$linkedin.url$}{$linkedin.label$}$endif$
+$if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
+\end{center}
+
+% --- SUMMARY ---
+$if(summary)$
+\section*{Summary}
+$for(summary)$
+$summary$  
+$endfor$
+$endif$
+
+% --- EDUCATION ---
+$if(education)$
+\section*{Education}
+$for(education)$
+\entry{$it.degree$}{$it.school$}{$it.city$}{$it.period$}
+$if(it.details)$\\
+$it.details$
+$endif$
+\medskip
+$endfor$
+$endif$
+
+% --- EXPERIENCE ---
+$if(experience)$
+\section*{Experience}
+$for(experience)$
+\textbf{$it.title$}$if(it.type)$ — \textit{$it.type$}$endif$ \hfill \textit{$it.period$}\\
+$it.company$, $it.city$
+$if(it.bullets)$
+\begin{itemize}
+$for(it.bullets)$
+\item $it$
+$endfor$
+\end{itemize}
+$endif$
+\medskip
+$endfor$
+$endif$
+
+% --- SKILLS ---
+$if(skills)$
+\section*{Skills}
+\begin{multicols}{2}
+
+$if(skills.programming)$
+\textbf{Programming}\\
+$for(skills.programming)$- $it$\\$endfor$
+\medskip
+$endif$
+
+$if(skills.automation)$
+\textbf{Automation \& DevOps}\\
+$for(skills.automation)$- $it$\\$endfor$
+\medskip
+$endif$
+
+$if(skills.web)$
+\textbf{Web \& Frontend}\\
+$for(skills.web)$- $it$\\$endfor$
+\medskip
+$endif$
+
+$if(skills.languages)$
+\textbf{Languages}\\
+$for(skills.languages)$- $it$\\$endfor$
+\medskip
+$endif$
+
+\end{multicols}
+
+$if(skills.core)$
+\textbf{Core Strengths}
+\begin{itemize}
+$for(skills.core)$
+\item $it$
+$endfor$
+\end{itemize}
+$endif$
+
+$endif$
+
+% --- AWARDS ---
+$if(awards)$
+\section*{Awards \& Achievements}
+$for(awards)$
+\textbf{$it.when$ — $it.title$}\\
+$it.description$ $if(it.link)$(\href{$it.link$}{View certificate})$endif$
+\medskip
+$endfor$
+$endif$
+
+% --- CERTIFICATIONS ---
+$if(certifications)$
+\section*{Certifications}
+$for(certifications)$
+\textbf{$it.when$} — \textit{$it.name$}\\
+$endfor$
+$endif$
+
+\end{document}
