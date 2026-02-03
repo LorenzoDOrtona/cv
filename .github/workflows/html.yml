@@ -1,0 +1,41 @@
+name: Build HTML from cv
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'data/cv.yaml'
+      - 'templates/site.html'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Pandoc
+        uses: pandoc/actions-setup@v1
+        with:
+          pandoc-version: 'latest'
+
+      - name: Build HTML
+        run: |
+          # Use pandoc directly on the host for speed
+          # The -s (standalone) flag is often useful when using templates
+          pandoc /dev/null \
+            --template=templates/site.html \
+            --metadata-file=data/cv.yaml \
+            -f markdown -t html \
+            -o index.html
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update index.html from cv.yaml"
+          file_pattern: "index.html"
