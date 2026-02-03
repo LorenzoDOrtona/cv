@@ -12,30 +12,51 @@ permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+    container:
+      image: pandoc/core:latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Set up Pandoc
-        uses: pandoc/actions-setup@v1
-        with:
-          pandoc-version: 'latest'
 
       - name: Build HTML
         run: |
-          # Use pandoc directly on the host for speed
-          # The -s (standalone) flag is often useful when using templates
-          pandoc /dev/null \
+          mkdir -p build
+          printf "" | pandoc \
             --template=templates/site.html \
             --metadata-file=data/cv.yaml \
             -f markdown -t html \
-            -o index.html
+            -o build/index.html
 
-      - name: Commit and push changes
+      - name: Upload index.html as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: html
+          path: build/index.html
+
+  commit:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download generated HTML
+        uses: actions/download-artifact@v4
+        with:
+          name: html
+          path: downloaded
+
+      - name: Move file into repo
+        run: mv downloaded/index.html index.html
+
+      - name: Commit index.html
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update index.html from cv.yaml"
           file_pattern: "index.html"
+          branch: ${{ github.ref_name }}
