@@ -56,6 +56,10 @@ projects:
   - name: "Galaxy Trucker"
     stack: "Java · Java RMI · Socket · Java FX GUI · MVC pattern"
     summary: "Java client-server implementation of the board game Galaxy Trucker using RMI and sockets, with JavaFX GUI and MVC architecture. Team project focused on networking, concurrency, and software design."
+    links:
+      - label: "Repo"
+        url: "https://github.com/LorenzoDOrtona/Galaxy-Trucker"
+        new_tab: true
   - name: "Personal Homelab & Self-Hosted Photos"
     stack: "Linux · Docker · Immich · Tailscale"
     summary: "Personal homelab set up to experiment with self-hosting and private networking. Installed and ran Immich on a Linux server using Docker, with secure remote access from mobile devices via Tailscale, focusing on system setup, networking, and data ownership."
