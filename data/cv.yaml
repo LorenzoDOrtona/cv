@@ -1,5 +1,5 @@
 name: "Lorenzo D’Ortona"
-headline: "Computer Engineering student · Cybersecurity & Backend Development"
+headline: "Computer Engineering student · Backend Development, Cybersecurity & Cloud-Native"
 location: "Milano, Italia"
 public_email: "contact@lorenzodortona.com"
 github:   { url: "https://github.com/LorenzoDOrtona", label: "LorenzoDOrtona" }
@@ -43,12 +43,12 @@ experience:
       - "Active member of PoliMi’s Linux and open-source community."
       - "Hands-on exploration of Linux systems, self-hosting, and open-source tooling."
 projects:
-  - name: "Tris Inception — Ultimate Tic-Tac-Toe (ongoing)"
-    stack: "Go · React · REST APIs"
-    summary: "Distributed Ultimate Tic-Tac-Toe engine with a Go backend and React frontend. The game state is maintained in-memory on the backend and synchronized with clients via REST-based polling, without relying on a database."
+  - name: "Tris Inception — Ultimate Tic-Tac-Toe"
+    stack: "Go · React · Docker · Kubernetes (k3s) · CI/CD"
+    summary: "Distributed Ultimate Tic-Tac-Toe engine with a Go backend and React frontend. Fully containerized and deployed on a self-hosted Kubernetes (k3s) cluster via a GitOps CI/CD pipeline (GitHub Actions, GHCR). Features Traefik Ingress and automated Let's Encrypt certificates."
     links:
       - label: "Demo"
-        url: "https://tris-inception.onrender.com/"
+        url: "https://tris.lorenzodortona.com"
         new_tab: true
       - label: "Repo"
         url: "https://github.com/LorenzoDOrtona/Tris_Inception"
@@ -83,11 +83,10 @@ projects:
 
 skills:
   programming: ["Python (advanced)", "C (intermediate)", "C++", "Go", "Java", "SQL"]
-  automation: ["Selenium", "Python scripting", "Kubernetes (learning)"]
+  automation: ["Docker", "Kubernetes (k3s)", "CI/CD (GitHub Actions)", "Selenium", "Python scripting"]
   web: ["HTML", "CSS"]
   languages: ["Italian (Native)", "English (Advanced – TOEIC 920/990)"]
   core: ["Solid understanding of algorithms, data structures, and efficient software design.", "Analytical problem-solver focused on clean, maintainable code.", "Collaborative and proactive learner with strong communication."]
-
 awards:
   - when: "2023"
     title: "Angelini Industries Merit Award"
