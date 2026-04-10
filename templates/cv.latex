@@ -83,34 +83,29 @@ $endif$
 % --- SKILLS ---
 $if(skills)$
 \section*{Skills}
-\begin{multicols}{2}
+\begingroup
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt} % Spacing between categories
 
 $if(skills.programming)$
-\textbf{Programming}\\
-$for(skills.programming)$- $it$\\$endfor$
-\medskip
+\textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$\\
 $endif$
 
 $if(skills.automation)$
-\textbf{Automation \& DevOps}\\
-$for(skills.automation)$- $it$\\$endfor$
-\medskip
+\textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$\\
 $endif$
 
 $if(skills.web)$
-\textbf{Web \& Frontend}\\
-$for(skills.web)$- $it$\\$endfor$
-\medskip
+\textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$\\
 $endif$
 
 $if(skills.languages)$
-\textbf{Languages}\\
-$for(skills.languages)$- $it$\\$endfor$
-\medskip
+\textbf{Languages:} $for(skills.languages)$$it$$sep$, $endfor$\\
 $endif$
 
-\end{multicols}
-
+\endgroup
+\medskip
+$endif$
 $if(skills.core)$
 \textbf{Core Strengths}
 \begin{itemize}
