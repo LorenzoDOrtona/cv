@@ -93,13 +93,9 @@ $if(skills)$
 \begin{multicols}{2}
 
 $if(skills.programming)$
-\textbf{Programming}
-\begin{itemize}
-$for(skills.programming)$
-\item $it$
-$endfor$
-\end{itemize}
-\vspace{6pt}
+% Label in bold, inline list separated by commas, followed by a line break
+\textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$\\
+\vspace{6pt} % Keeps the vertical space you had before
 $endif$
 
 $if(skills.automation)$
