@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/Tectonic
-          key: tectonic-${{ runner.os }}-v1
+          key: tectonic-${{ runner.os }}-v2
 
       - name: Build TEX and PDF
         run: |
