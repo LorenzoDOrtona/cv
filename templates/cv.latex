@@ -97,6 +97,7 @@ $if(it.links)$
 \hfill {\footnotesize $for(it.links)$\href{$it.url$}{\faLink~$it.label$}$sep$ \hspace{8pt} $endfor$}
 $endif$
 \\[2pt] % Small vertical space before the summary
+
 % Project summary text without bullet points to save vertical space
 $it.summary$
 \vspace{6pt}
