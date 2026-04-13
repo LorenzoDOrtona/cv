@@ -10,10 +10,12 @@
 
 % --- Styling ---
 \renewcommand{\familydefault}{\sfdefault}
-\renewcommand{\baselinestretch}{1.03} % slightly tighter
+\renewcommand{\baselinestretch}{1.05} % Slightly increased for better readability
 \setlength{\parindent}{0pt}
 \pagenumbering{gobble}
-\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=10pt}
+
+% Global itemize settings for clean alignment
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=12pt}
 
 % Section formatting (clean, compact)
 \titleformat{\section}
@@ -21,9 +23,9 @@
   {}
   {0em}
   {}
-  [\vspace{2pt}\titlerule]
+  [\vspace{2pt}\titlerule\vspace{6pt}] % Added spacing below the rule for breathing room
 
-% Entry macro
+% Entry macro for Education and generic entries
 \newcommand{\entry}[4]{%
   \textbf{#1} \hfill \textit{#4}\\
   #2, #3
@@ -33,15 +35,16 @@
 
 % --- HEADER ---
 \begin{center}
-{\LARGE \textbf{$name$}}\\[2pt]
-\textit{$headline$}\\[4pt]
+{\LARGE \textbf{$name$}}\\[4pt]
+\textit{$headline$}\\[6pt]
 $if(location)$\faMapMarker*~$location$ \quad$endif$
 $if(email)$\faEnvelope~\href{mailto:$email$}{$email$} \quad$endif$
-$if(phone)$\faPhone~$phone$\\[2pt]$endif$
+$if(phone)$\faPhone~$phone$\\[4pt]$endif$
 $if(github)$\faGithub~\href{$github.url$}{$github.label$}$endif$
 $if(linkedin)$ \quad \faLinkedin~\href{$linkedin.url$}{$linkedin.label$}$endif$
 $if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
 \end{center}
+\vspace{4pt}
 
 % --- SUMMARY ---
 $if(summary)$
@@ -49,6 +52,7 @@ $if(summary)$
 $for(summary)$
 $summary$  
 $endfor$
+\vspace{2pt}
 $endif$
 
 % --- EDUCATION ---
@@ -56,8 +60,10 @@ $if(education)$
 \section*{Education}
 $for(education)$
 \entry{$it.degree$}{$it.school$}{$it.city$}{$it.period$}
-$if(it.details)$\\
-$it.details$
+$if(it.details)$
+\begin{itemize}
+\item $it.details$
+\end{itemize}
 $endif$
 \medskip
 $endfor$
@@ -83,29 +89,52 @@ $endif$
 % --- SKILLS ---
 $if(skills)$
 \section*{Skills}
-\begingroup
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{4pt} % Spacing between categories
+% Use multicols to save space, but itemize for perfect vertical alignment
+\begin{multicols}{2}
 
 $if(skills.programming)$
-\textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$\\
+\textbf{Programming}
+\begin{itemize}
+$for(skills.programming)$
+\item $it$
+$endfor$
+\end{itemize}
+\vspace{6pt}
 $endif$
 
 $if(skills.automation)$
-\textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$\\
+\textbf{Automation \& DevOps}
+\begin{itemize}
+$for(skills.automation)$
+\item $it$
+$endfor$
+\end{itemize}
+\vspace{6pt}
 $endif$
 
 $if(skills.web)$
-\textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$\\
+\textbf{Web \& Frontend}
+\begin{itemize}
+$for(skills.web)$
+\item $it$
+$endfor$
+\end{itemize}
+\vspace{6pt}
 $endif$
 
 $if(skills.languages)$
-\textbf{Languages:} $for(skills.languages)$$it$$sep$, $endfor$\\
+\textbf{Languages}
+\begin{itemize}
+$for(skills.languages)$
+\item $it$
+$endfor$
+\end{itemize}
+\vspace{6pt}
 $endif$
 
-\endgroup
-\medskip
-$endif$
+\end{multicols}
+
+% Core strengths kept outside multicols to span full width
 $if(skills.core)$
 \textbf{Core Strengths}
 \begin{itemize}
