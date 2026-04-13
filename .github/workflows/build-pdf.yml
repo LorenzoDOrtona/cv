@@ -34,7 +34,6 @@ jobs:
           curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
           # sposta in /usr/local/bin così è nel PATH
           sudo mv tectonic /usr/local/bin/tectonic
-          tectonic -V
 
       - name: Cache Tectonic
         uses: actions/cache@v4
