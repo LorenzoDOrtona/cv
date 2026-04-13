@@ -23,17 +23,17 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
 
-      - name: Install Pandoc
+      - name: Install Pandoc and dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc curl
+          # Added fontconfig to prevent missing font library errors on Ubuntu
+          sudo apt-get install -y pandoc curl fontconfig
 
       - name: Install Tectonic
         run: |
-          # scarica il binario nella dir corrente
           curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
-          # sposta in /usr/local/bin così è nel PATH
           sudo mv tectonic /usr/local/bin/tectonic
+          tectonic -V
 
       - name: Cache Tectonic
         uses: actions/cache@v4
@@ -41,20 +41,18 @@ jobs:
           path: ~/.cache/Tectonic
           key: tectonic-${{ runner.os }}-v1
 
-      - name: Build TEX (debug)
+      - name: Build TEX and PDF
         run: |
           mkdir -p build
+          
+          # 1. Generate the .tex file using Pandoc
           pandoc --template ./templates/cv.latex \
                  --metadata-file data/cv.yaml \
                  -t latex -o build/cv.tex
-          head -n 80 build/cv.tex || true
-
-      - name: Build PDF (Pandoc → Tectonic)
-        run: |
-          pandoc --template ./templates/cv.latex \
-                 --metadata-file data/cv.yaml \
-                 --pdf-engine=tectonic \
-                 -o build/cv.pdf
+          
+          # 2. Compile the .tex into a .pdf using Tectonic directly
+          # This avoids the "invalid pointer" crash caused by Pandoc's sub-process wrapper
+          tectonic build/cv.tex
 
       - name: Copy to repo root
         run: cp build/cv.pdf cv.pdf
