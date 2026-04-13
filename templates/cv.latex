@@ -118,34 +118,22 @@ $if(skills.programming)$
 $endif$
 
 $if(skills.automation)$
-\textbf{Automation \& DevOps}
-\begin{itemize}
-$for(skills.automation)$
-\item $it$
-$endfor$
-\end{itemize}
-\vspace{6pt}
+% Label in bold, inline list separated by commas, followed by a line break
+\textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$\\
+\vspace{6pt} % Keeps the vertical space you had before
 $endif$
-
 $if(skills.web)$
-\textbf{Web \& Frontend}
-\begin{itemize}
-$for(skills.web)$
-\item $it$
-$endfor$
-\end{itemize}
-\vspace{6pt}
+% Label in bold, inline list separated by commas, followed by a line break
+  \textbf{Web \& Frontend} $for(skills.web)$$it$$sep$, $endfor$\\
+\vspace{6pt} % Keeps the vertical space you had before
 $endif$
 
 $if(skills.languages)$
-\textbf{Languages}
-\begin{itemize}
-$for(skills.languages)$
-\item $it$
-$endfor$
-\end{itemize}
-\vspace{6pt}
+% Label in bold, inline list separated by commas, followed by a line break
+  \textbf{Languages} $for(skills.languages)$$it$$sep$, $endfor$\\
+\vspace{6pt} % Keeps the vertical space you had before
 $endif$
+
 
 \end{multicols}
 
