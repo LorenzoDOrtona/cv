@@ -20,10 +20,6 @@ education:
     school: "Politecnico di Milano"
     city: "Milano"
     period: "2022 – 2025"
-  - degree: "High School Diploma – Liceo Scientifico Scienze Applicate (100/100 cum laude)"
-    school: "Luigi di Savoia"
-    city: "Chieti (Abruzzo)"
-    period: "2017 – 2022"
 
 experience:
   - title: "Performance Engineer Analyst"
