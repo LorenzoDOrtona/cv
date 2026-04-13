@@ -29,16 +29,17 @@ jobs:
           # Added fontconfig to prevent missing font library errors on Ubuntu
           sudo apt-get install -y pandoc curl fontconfig
 
-      - name: Install Tectonic
-        run: |
-          curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
-          sudo mv tectonic /usr/local/bin/tectonic
+      - name: Setup Tectonic
+        uses: wtfjoke/setup-tectonic@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version: '0.15.0'
 
       - name: Cache Tectonic
         uses: actions/cache@v4
         with:
           path: ~/.cache/Tectonic
-          key: tectonic-${{ runner.os }}-v2
+          key: tectonic-${{ runner.os }}-v3
 
       - name: Build TEX and PDF
         run: |
