@@ -130,15 +130,6 @@ $endif$
 
 \end{multicols}
 
-% Core strengths kept outside multicols to span full width
-$if(skills.core)$
-\textbf{Core Strengths}
-\begin{itemize}
-$for(skills.core)$
-\item $it$
-$endfor$
-\end{itemize}
-$endif$
 
 $endif$
 
