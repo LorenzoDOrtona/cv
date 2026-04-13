@@ -80,7 +80,6 @@ projects:
 skills:
   programming: ["Python (advanced)", "C (intermediate)", "C++", "Go", "Java", "SQL"]
   automation: ["Docker", "Kubernetes (k3s)", "CI/CD (GitHub Actions)", "Selenium", "Python scripting"]
-  web: ["HTML", "CSS"]
   languages: ["Italian (Native)", "English (Advanced – TOEIC 920/990)"]
   core: ["Solid understanding of algorithms, data structures, and efficient software design.", "Analytical problem-solver focused on clean, maintainable code.", "Collaborative and proactive learner with strong communication."]
 awards:
