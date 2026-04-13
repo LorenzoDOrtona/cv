@@ -92,7 +92,6 @@ $if(projects)$
 \section*{Projects}
 $for(projects)$
 % Project title in bold, separated by a vertical bar from the tech stack in italics
-% Using \textbar to avoid Pandoc template engine conflicts with the $ symbol
 \textbf{$it.name$} --- \textit{$it.stack$}
 % Push links to the right margin with a small icon for each
 $if(it.links)$
