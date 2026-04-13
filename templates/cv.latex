@@ -87,7 +87,6 @@ $endfor$
 $endif$
 
 % --- PROJECTS ---
-% --- PROJECTS ---
 $if(projects)$
 \section*{Projects}
 $for(projects)$
@@ -101,22 +100,18 @@ $endif$
 % Project summary text without bullet points to save vertical space
 $it.summary$
 \vspace{6pt}
-
 $endfor$
 $endif$
-
 % --- SKILLS ---
 $if(skills)$
 \section*{Skills}
 % Use multicols to save space, but itemize for perfect vertical alignment
 \begin{multicols}{2}
-
 $if(skills.programming)$
 % Label in bold, inline list separated by commas, followed by a line break
 \textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$\\
 \vspace{6pt} % Keeps the vertical space you had before
 $endif$
-
 $if(skills.automation)$
 % Label in bold, inline list separated by commas, followed by a line break
 \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$\\
@@ -127,17 +122,12 @@ $if(skills.web)$
   \textbf{Web \& Frontend} $for(skills.web)$$it$$sep$, $endfor$\\
 \vspace{6pt} % Keeps the vertical space you had before
 $endif$
-
 $if(skills.languages)$
 % Label in bold, inline list separated by commas, followed by a line break
   \textbf{Languages} $for(skills.languages)$$it$$sep$, $endfor$\\
 \vspace{6pt} % Keeps the vertical space you had before
 $endif$
-
-
 \end{multicols}
-
-
 $endif$
 
 % --- AWARDS ---
