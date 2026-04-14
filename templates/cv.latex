@@ -101,7 +101,7 @@ $endif$
 \textit{\footnotesize $it.stack$} \par \vspace{1pt}
 {\small $it.summary$}
 \end{minipage}
-\par \vspace{4pt}
+\par \vspace{1pt}
 $endfor$
 $endif$
 
@@ -126,3 +126,4 @@ $endif$
 \end{minipage}
 
 \end{document}
+
