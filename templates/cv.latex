@@ -13,8 +13,8 @@
 \setlength{\parindent}{0pt}
 \pagenumbering{gobble}
 
-% Global itemize settings: compatti ma con respiro
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=12pt, partopsep=0pt, parsep=0pt}
+% Global itemize settings: molto compatti
+\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=12pt, partopsep=0pt, parsep=0pt}
 
 % Section formatting: linea distanziata dal testo
 \titleformat{\section}
@@ -22,14 +22,14 @@
   {}
   {0em}
   {}
-  [\vspace{2pt}\titlerule\vspace{4pt}]
+  [\vspace{1pt}\titlerule\vspace{2pt}]
 
-\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\section}{0pt}{8pt}{4pt} % Ridotto spazio prima (8pt) e dopo (4pt)
 
 % Entry macro for Education
 \newcommand{\educationentry}[4]{%
   \textbf{#1} \hfill \textit{#4}\\
-  {#2, #3} \par \vspace{4pt}
+  {#2, #3} \par \vspace{2pt}
 }
 
 \begin{document}
@@ -46,7 +46,7 @@ $if(linkedin)$ \quad \faLinkedin~\href{$linkedin.url$}{$linkedin.label$}$endif$
 $if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
 }
 \end{center}
-\vspace{-4pt}
+\vspace{-6pt}
 
 % --- EDUCATION ---
 $if(education)$
@@ -69,7 +69,7 @@ $for(it.bullets)$
 $endfor$
 \end{itemize}
 $endif$
-\vspace{6pt}
+\vspace{4pt}
 $endfor$
 $endif$
 
@@ -95,29 +95,29 @@ $if(it.links)$
 {\footnotesize $for(it.links)$\href{$it.url$}{\faExternalLink*~$it.label$}$sep$ \hspace{8pt} $endfor$}
 $endif$
 \par \vspace{1pt}
-\textit{\small $it.stack$} \par \vspace{2pt}
+\textit{\small $it.stack$} \par \vspace{1pt}
 $it.summary$
 \end{minipage}
-\par \vspace{10pt}
+\par \vspace{6pt} % Ridotto spazio tra progetti
 $endfor$
 $endif$
 
 % --- AWARDS & CERTIFICATIONS ---
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 $if(awards)$
 \section*{Awards}
 $for(awards)$
 \textbf{$it.when$ — $it.title$}\\
-{\small $it.description$} \vspace{4pt}
+{\small $it.description$} \par \vspace{4pt} % Aggiunto \par per gestire bene gli accapo
 $endfor$
 $endif$
 \end{minipage}
-\begin{minipage}[t]{0.5\textwidth}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
 $if(certifications)$
 \section*{Certifications}
 $for(certifications)$
-\textbf{$it.when$} — \textit{$it.name$}\\
-\vspace{2pt}
+\textbf{$it.when$} — \textit{$it.name$} \par \vspace{4pt} % Aggiunto \par per gestire bene gli accapo
 $endfor$
 $endif$
 \end{minipage}
