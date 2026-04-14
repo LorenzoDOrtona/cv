@@ -106,29 +106,21 @@ $endif$
 % --- SKILLS ---
 $if(skills)$
 \section*{Skills}
-% Use multicols to save space, but itemize for perfect vertical alignment
-\begin{multicols}{2}
-$if(skills.programming)$
-% Label in bold, inline list separated by commas, followed by a line break
-\textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$\\
-\vspace{6pt} % Keeps the vertical space you had before
+\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=2pt]
+    \item[] \textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$
+    \item[] \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$
+    $if(skills.web)$\item[] \textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$$endif$
+    \item[] \textbf{Languages:} $for(skills.languages)$$it$$sep$, $endfor$
+\end{itemize}
+
+$if(skills.core)$
+\vspace{4pt}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt]
+$for(skills.core)$
+  \item $it$
+$endfor$
+\end{itemize}
 $endif$
-$if(skills.automation)$
-% Label in bold, inline list separated by commas, followed by a line break
-\textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$\\
-\vspace{6pt} % Keeps the vertical space you had before
-$endif$
-$if(skills.web)$
-% Label in bold, inline list separated by commas, followed by a line break
-  \textbf{Web \& Frontend} $for(skills.web)$$it$$sep$, $endfor$\\
-\vspace{6pt} % Keeps the vertical space you had before
-$endif$
-$if(skills.languages)$
-% Label in bold, inline list separated by commas, followed by a line break
-  \textbf{Languages} $for(skills.languages)$$it$$sep$, $endfor$\\
-\vspace{6pt} % Keeps the vertical space you had before
-$endif$
-\end{multicols}
 $endif$
 
 % --- AWARDS ---
