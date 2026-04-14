@@ -1,6 +1,6 @@
 \documentclass[a4paper,10pt]{article}
 
-\usepackage[margin=1.5cm]{geometry}
+\usepackage[margin=1.2cm]{geometry} % Margini ottimizzati
 \usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
 \usepackage{enumitem}
@@ -9,14 +9,14 @@
 
 % --- Styling ---
 \renewcommand{\familydefault}{\sfdefault}
-\renewcommand{\baselinestretch}{1.0}
+\renewcommand{\baselinestretch}{0.98} % Micro-compressione dell'interlinea
 \setlength{\parindent}{0pt}
 \pagenumbering{gobble}
 
-% Global itemize settings: molto compatti
-\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=12pt, partopsep=0pt, parsep=0pt}
+% Global itemize settings: estrema compattezza
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=10pt, partopsep=0pt, parsep=0pt}
 
-% Section formatting: linea distanziata dal testo
+% Section formatting: linea sottile e spazi minimi
 \titleformat{\section}
   {\large\bfseries\scshape}
   {}
@@ -24,21 +24,21 @@
   {}
   [\vspace{1pt}\titlerule\vspace{2pt}]
 
-\titlespacing*{\section}{0pt}{8pt}{4pt} % Ridotto spazio prima (8pt) e dopo (4pt)
+\titlespacing*{\section}{0pt}{6pt}{3pt} % Spazi ridotti al minimo indispensabile
 
 % Entry macro for Education
 \newcommand{\educationentry}[4]{%
   \textbf{#1} \hfill \textit{#4}\\
-  {#2, #3} \par \vspace{2pt}
+  {#2, #3} \par \vspace{1pt}
 }
 
 \begin{document}
 
-% --- HEADER ---
+% --- HEADER COMPATTO ---
 \begin{center}
-{\LARGE \textbf{$name$}}\\[4pt]
-{\textit{$headline$}}\\[6pt]
-{\small
+{\LARGE \textbf{$name$}}\\[2pt]
+{\small \textit{$headline$}}\\[3pt]
+{\footnotesize
 $if(location)$\faMapMarker*~$location$ \quad$endif$
 $if(email)$\faEnvelope~\href{mailto:$email$}{$email$} \quad$endif$
 $if(github)$\faGithub~\href{$github.url$}{$github.label$}$endif$
@@ -46,7 +46,7 @@ $if(linkedin)$ \quad \faLinkedin~\href{$linkedin.url$}{$linkedin.label$}$endif$
 $if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
 }
 \end{center}
-\vspace{-6pt}
+\vspace{-8pt}
 
 % --- EDUCATION ---
 $if(education)$
@@ -69,14 +69,14 @@ $for(it.bullets)$
 $endfor$
 \end{itemize}
 $endif$
-\vspace{4pt}
+\vspace{2pt}
 $endfor$
 $endif$
 
 % --- SKILLS ---
 $if(skills)$
 \section*{Skills}
-\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=2pt]
+\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=1pt]
     \item[] \textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$
     \item[] \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$
     $if(skills.web)$\item[] \textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$$endif$
@@ -94,11 +94,11 @@ $for(projects)$
 $if(it.links)$
 {\footnotesize $for(it.links)$\href{$it.url$}{\faExternalLink*~$it.label$}$sep$ \hspace{8pt} $endfor$}
 $endif$
-\par \vspace{1pt}
-\textit{\small $it.stack$} \par \vspace{1pt}
-$it.summary$
+\par \vspace{-1pt}
+\textit{\footnotesize $it.stack$} \par \vspace{1pt}
+{\small $it.summary$}
 \end{minipage}
-\par \vspace{6pt} % Ridotto spazio tra progetti
+\par \vspace{4pt}
 $endfor$
 $endif$
 
@@ -107,8 +107,8 @@ $endif$
 $if(awards)$
 \section*{Awards}
 $for(awards)$
-\textbf{$it.when$ — $it.title$}\\
-{\small $it.description$} \par \vspace{4pt} % Aggiunto \par per gestire bene gli accapo
+{\small \textbf{$it.when$ — $it.title$}\\
+\footnotesize $it.description$} \par \vspace{2pt}
 $endfor$
 $endif$
 \end{minipage}
@@ -117,7 +117,7 @@ $endif$
 $if(certifications)$
 \section*{Certifications}
 $for(certifications)$
-\textbf{$it.when$} — \textit{$it.name$} \par \vspace{4pt} % Aggiunto \par per gestire bene gli accapo
+{\small \textbf{$it.when$} — \textit{$it.name$}} \par \vspace{2pt}
 $endfor$
 $endif$
 \end{minipage}
