@@ -5,48 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>$name$ — Portfolio</title>
   <meta name="description" content="Portfolio di $name$: progetti, esperienza e contatti. $headline$" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#0b0b0c;--fg:#f4f4f5;--muted:#a1a1aa;--acc:#7c3aed;--card:#111113;--border:#232326;
-      --max:1000px;
+    :root {
+      --bg: #09090b;
+      --fg: #fafafa;
+      --muted: #a1a1aa;
+      --acc: #8b5cf6;
+      --acc-soft: rgba(139, 92, 246, 0.1);
+      --card: #121215;
+      --border: #27272a;
+      --max: 1100px;
+      --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    a{color:var(--fg);text-decoration:none}
-    a:hover{color:var(--acc)}
-    header{position:sticky;top:0;background:rgba(11,11,12,.6);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border)}
-    nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    nav .brand{font-weight:700;letter-spacing:.4px}
-    nav .links a{margin-left:18px;font-size:.95rem;color:var(--muted)}
-    .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:40px 0}
-    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:.8rem}
-    h1{font-size:2.5rem;line-height:1.15;margin:14px 0}
-    p.lead{color:var(--muted);max-width:65ch}
-    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
-    .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--acc),#2563eb);color:white}
 
-    .section{padding:24px 0}
-    .section h2{font-size:1.4rem;margin:0 0 10px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
-    .card h3{margin:0 0 6px;font-size:1.05rem}
-    .meta{color:var(--muted);font-size:.9rem}
-
-    .about{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .list{margin:0;padding-left:18px;color:var(--muted)}
-
-    footer{border-top:1px solid var(--border);margin-top:40px}
-    .foot{max-width:var(--max);margin:0 auto;padding:24px 20px;display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem}
-
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr 1fr}
-      .about{grid-template-columns:1fr}
+    * { box-sizing: border-box; transition: all 0.2s ease; }
+    html { scroll-behavior: smooth; }
+    body { 
+      margin: 0; padding: 0; 
+      background: var(--bg); color: var(--fg); 
+      font: 16px/1.6 var(--font-main);
+      -webkit-font-smoothing: antialiased;
     }
-    @media (max-width:600px){
-      .grid{grid-template-columns:1fr}
+
+    a { color: var(--fg); text-decoration: none; }
+    a:hover { color: var(--acc); }
+
+    header { 
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(9, 9, 11, 0.8); 
+      backdrop-filter: blur(12px); 
+      border-bottom: 1px solid var(--border); 
+    }
+    nav { 
+      max-width: var(--max); margin: 0 auto; 
+      display: flex; align-items: center; justify-content: space-between; 
+      padding: 16px 24px; 
+    }
+    nav .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.5px; }
+    nav .links a { margin-left: 20px; font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+    nav .links a:hover { color: var(--fg); }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 40px 24px; }
+
+    /* Hero */
+    .hero { padding: 80px 0; max-width: 800px; }
+    .badge { 
+      display: inline-block; padding: 4px 12px; 
+      background: var(--acc-soft); border: 1px solid var(--acc);
+      border-radius: 999px; color: var(--acc); 
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;
+    }
+    h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 24px; font-weight: 800; letter-spacing: -2px; }
+    p.lead { font-size: 1.25rem; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+    
+    .cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { 
+      padding: 12px 20px; border: 1px solid var(--border); 
+      border-radius: 10px; background: var(--card); 
+      font-weight: 600; font-size: 0.95rem; cursor: pointer;
+    }
+    .btn:hover { border-color: var(--muted); transform: translateY(-2px); }
+    .btn.primary { 
+      background: var(--fg); color: var(--bg); border: none;
+    }
+    .btn.primary:hover { opacity: 0.9; }
+
+    /* Sections */
+    section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.8rem; margin: 0 0 32px; font-weight: 700; letter-spacing: -0.5px; }
+
+    /* Projects Grid */
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .card { 
+      background: var(--card); border: 1px solid var(--border); 
+      border-radius: 20px; padding: 28px; 
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative; overflow: hidden;
+    }
+    .card:hover { 
+      border-color: var(--acc); 
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
+    }
+    .card h3 { margin: 0; font-size: 1.3rem; font-weight: 700; }
+    .card .meta { 
+      font-family: var(--font-mono); font-size: 0.8rem; 
+      color: var(--acc); letter-spacing: -0.2px;
+    }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; flex-grow: 1; }
+    .card .links { display: flex; gap: 16px; font-weight: 600; font-size: 0.9rem; }
+
+    /* Experience Timeline */
+    .exp-item { margin-bottom: 40px; display: grid; grid-template-columns: 200px 1fr; gap: 20px; }
+    .exp-date { color: var(--muted); font-family: var(--font-mono); font-size: 0.9rem; }
+    .exp-content h3 { margin: 0 0 4px; font-size: 1.15rem; }
+    .exp-company { color: var(--acc); font-weight: 600; margin-bottom: 12px; display: block; }
+    .exp-bullets { margin: 0; padding-left: 18px; color: var(--muted); }
+    .exp-bullets li { margin-bottom: 8px; }
+
+    /* Skills/About */
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .skills-group { margin-bottom: 24px; }
+    .skills-label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: var(--card); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
+
+    footer { border-top: 1px solid var(--border); padding: 40px 0; background: #050507; }
+    .foot { max-width: var(--max); margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; color: var(--muted); font-size: 0.9rem; }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 2.8rem; }
+      .grid { grid-template-columns: 1fr; }
+      .about-split { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
     }
   </style>
 </head>
@@ -55,9 +134,9 @@
     <nav>
       <div class="brand">$name$</div>
       <div class="links">
-        $if(github)$<a href="$github.url$" target="_blank" rel="noreferrer">$github.label$</a>$endif$
-        $if(linkedin)$<a href="$linkedin.url$" target="_blank" rel="noreferrer">$linkedin.label$</a>$endif$
-        $if(leetcode)$<a href="$leetcode.url$" target="_blank" rel="noreferrer">$leetcode.label$</a>$endif$
+        <a href="#progetti">Projects</a>
+        <a href="#esperienza">Experience</a>
+        <a href="#contatti">Contact</a>
       </div>
     </nav>
   </header>
@@ -65,44 +144,39 @@
   <main class="wrap">
     <!-- HERO -->
     <section class="hero">
-      <div>
-        <span class="badge">$headline$</span>
-        <h1>Build clean, fast, useful software.</h1>
-        $if(summary)$
-          $for(summary)$
-          <p class="lead">$summary$</p>
-          $endfor$
-        $endif$
-        <div class="cta">
-          <a class="btn primary" href="#progetti">View projects</a>
-          $if(public_email)$<a class="btn" href="mailto:$public_email$">Email me</a>$endif$
-          $if(github)$<a class="btn" href="$github.url$" target="_blank" rel="noreferrer">GitHub</a>$endif$
-          $if(linkedin)$<a class="btn" href="$linkedin.url$" target="_blank" rel="noreferrer">LinkedIn</a>$endif$
-          $if(leetcode)$<a class="btn" href="$leetcode.url$" target="_blank" rel="noreferrer">LeetCode</a>$endif$
-        </div>
+      <span class="badge">$headline$</span>
+      <h1>Build clean, fast, useful software.</h1>
+      $if(summary)$
+        $for(summary)$
+        <p class="lead">$summary$</p>
+        $endfor$
+      $endif$
+      <div class="cta">
+        <a class="btn primary" href="#progetti">View projects</a>
+        $if(public_email)$<a class="btn" href="mailto:$public_email$">Email me</a>$endif$
+        $if(github)$<a class="btn" href="$github.url$" target="_blank" rel="noreferrer">GitHub</a>$endif$
+        $if(linkedin)$<a class="btn" href="$linkedin.url$" target="_blank" rel="noreferrer">LinkedIn</a>$endif$
       </div>
     </section>
 
-    <!-- PROGETTI: SOLO SE ESISTE projects: NELLO YAML -->
+    <!-- PROGETTI -->
     $if(projects)$
-    <section class="section" id="progetti">
-      <h2>Personal projects</h2>
+    <section id="progetti">
+      <h2>Featured Work</h2>
       <div class="grid">
         $for(projects)$
         <article class="card">
+          <div class="meta">$if(it.stack)$$it.stack$$endif$</div>
           <h3>$it.name$</h3>
-          $if(it.stack)$
-          <div class="meta">$it.stack$</div>
-          $endif$
           $if(it.summary)$
           <p>$it.summary$</p>
           $endif$
           $if(it.links)$
-          <p>
+          <div class="links">
             $for(it.links)$
-              <a href="$it.url$" $if(it.new_tab)$target="_blank" rel="noreferrer"$endif$>$it.label$</a>$sep$ · 
+              <a href="$it.url$" $if(it.new_tab)$target="_blank" rel="noreferrer"$endif$>$it.label$ →</a>
             $endfor$
-          </p>
+          </div>
           $endif$
         </article>
         $endfor$
@@ -110,53 +184,112 @@
     </section>
     $endif$
 
-
-    <!-- ABOUT + HIGHLIGHTS -->
-    <section class="section about" id="about">
-      <div>
-        <h2>About</h2>
-        <p>I'm $name$, a <b>$headline$</b>. I care about clean design, practical security and building things that work well. I like open-source and learning by shipping.</p>
+    <!-- EXPERIENCE -->
+    $if(experience)$
+    <section id="esperienza">
+      <h2>Experience</h2>
+      <div class="timeline">
+        $for(experience)$
+        <div class="exp-item">
+          <div class="exp-date">$it.period$</div>
+          <div class="exp-content">
+            <h3>$it.title$</h3>
+            <span class="exp-company">$it.company$ · $it.city$</span>
+            $if(it.bullets)$
+            <ul class="exp-bullets">
+              $for(it.bullets)$
+              <li>$it$</li>
+              $endfor$
+            </ul>
+            $endif$
+          </div>
+        </div>
+        $endfor$
       </div>
-      <div>
-        <h2>Highlights</h2>
-        <ul class="list">
+    </section>
+    $endif$
+
+    <!-- ABOUT & SKILLS -->
+    <section id="about">
+      <div class="about-split">
+        <div>
+          <h2>About</h2>
+          <p>I'm $name$, a <b>$headline$</b> based in $location$. I care about clean design, practical security and building things that work well. I like open-source and learning by shipping.</p>
+          
           $if(education)$
+          <div style="margin-top: 32px;">
+            <span class="skills-label">Education</span>
             $for(education)$
-              <li>$it.degree$ — $it.school$ ($it.period$)</li>
+              <div style="margin-bottom: 16px;">
+                <div style="font-weight: 600; font-size: 0.95rem;">$it.degree$</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">$it.school$ · $it.period$</div>
+              </div>
             $endfor$
+          </div>
           $endif$
-          $if(skills.languages)$
-            <li>Languages: $for(skills.languages)$ $it$$sep$, $endfor$</li>
-          $endif$
+        </div>
+
+        <div>
+          <h2>Technical Skills</h2>
+          
           $if(skills.programming)$
-            <li>Programming: $for(skills.programming)$ $it$$sep$, $endfor$</li>
+          <div class="skills-group">
+            <span class="skills-label">Programming</span>
+            <div class="tags">
+              $for(skills.programming)$<span class="tag">$it$</span>$endfor$
+            </div>
+          </div>
           $endif$
+
           $if(skills.automation)$
-            <li>Automation: $for(skills.automation)$ $it$$sep$, $endfor$</li>
+          <div class="skills-group">
+            <span class="skills-label">Automation & Cloud</span>
+            <div class="tags">
+              $for(skills.automation)$<span class="tag">$it$</span>$endfor$
+            </div>
+          </div>
           $endif$
-          $if(skills.web)$
-            <li>Web: $for(skills.web)$ $it$$sep$, $endfor$</li>
+
+          $if(skills.languages)$
+          <div class="skills-group">
+            <span class="skills-label">Languages</span>
+            <div class="tags">
+              $for(skills.languages)$<span class="tag">$it$</span>$endfor$
+            </div>
+          </div>
           $endif$
-        </ul>
+
+          $if(skills.core)$
+          <div class="skills-group" style="margin-top: 32px; padding: 20px; background: var(--acc-soft); border-radius: 12px; border: 1px solid var(--acc);">
+            <span class="skills-label" style="color: var(--acc);">Core Competencies</span>
+            <ul style="margin: 0; padding-left: 18px; color: var(--fg); font-size: 0.9rem;">
+              $for(skills.core)$<li style="margin-bottom: 8px;">$it$</li>$endfor$
+            </ul>
+          </div>
+          $endif$
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contatti">
-      <h2>Contact</h2>
-      <p class="meta">Based in $location$ · Happy to chat 👇</p>
-      <p>
-        $if(public_email)$<a href="mailto:$public_email$">$public_email$</a>$endif$
-        $if(linkedin)$ · <a href="$linkedin.url$" target="_blank" rel="noreferrer">$linkedin.label$</a>$endif$
-        $if(github)$ · <a href="$github.url$" target="_blank" rel="noreferrer">$github.label$</a>$endif$
-      </p>
+    <section id="contatti" style="text-align: center; padding: 100px 0;">
+      <h2 style="font-size: 2.5rem; letter-spacing: -1px;">Let's build something together.</h2>
+      <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 40px;">Currently based in $location$. Open to interesting opportunities.</p>
+      <div style="display: flex; justify-content: center; gap: 24px;">
+        $if(public_email)$<a href="mailto:$public_email$" class="btn primary">Email Me</a>$endif$
+        $if(linkedin)$<a href="$linkedin.url$" class="btn">LinkedIn</a>$endif$
+        $if(github)$<a href="$github.url$" class="btn">GitHub</a>$endif$
+      </div>
     </section>
   </main>
 
   <footer>
     <div class="foot">
       <span>© <span id="y"></span> $name$</span>
-      <span><a href="/privacy">Privacy</a></span>
+      <div style="display: flex; gap: 20px;">
+        <a href="/privacy">Privacy</a>
+        <a href="https://github.com/LorenzoDOrtona/cv" target="_blank">Source Code</a>
+      </div>
     </div>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
