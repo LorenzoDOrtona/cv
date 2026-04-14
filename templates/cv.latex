@@ -22,11 +22,11 @@
   {}
   {0em}
   {}
-  [\vspace{2pt}\titlerule\vspace{4pt}] % Spazio sopra e sotto la linea
+  [\vspace{2pt}\titlerule\vspace{4pt}]
 
-\titlespacing*{\section}{0pt}{12pt}{6pt} % Più spazio prima delle sezioni
+\titlespacing*{\section}{0pt}{12pt}{6pt}
 
-% Entry macro for Education: migliorata separazione
+% Entry macro for Education
 \newcommand{\educationentry}[4]{%
   \textbf{#1} \hfill \textit{#4}\\
   {#2, #3} \par \vspace{4pt}
@@ -46,13 +46,7 @@ $if(linkedin)$ \quad \faLinkedin~\href{$linkedin.url$}{$linkedin.label$}$endif$
 $if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
 }
 \end{center}
-\vspace{-2pt}
-
-% --- SUMMARY ---
-$if(summary)$
-\section*{Summary}
-$for(summary)$$summary$ $sep$ \par $endfor$
-$endif$
+\vspace{-4pt}
 
 % --- EDUCATION ---
 $if(education)$
@@ -86,31 +80,25 @@ $if(skills)$
     \item[] \textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$
     \item[] \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$
     $if(skills.web)$\item[] \textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$$endif$
+    \item[] \textbf{Core / Soft Skills:} $for(skills.core)$$it$$sep$, $endfor$
     \item[] \textbf{Languages:} $for(skills.languages)$$it$$sep$, $endfor$
 \end{itemize}
-
-$if(skills.core)$
-\vspace{4pt}
-\begin{itemize}[leftmargin=12pt, itemsep=1pt]
-$for(skills.core)$
-  \item $it$
-$endfor$
-\end{itemize}
-$endif$
 $endif$
 
 % --- PROJECTS ---
 $if(projects)$
 \section*{Projects}
 $for(projects)$
-\noindent \textbf{$it.name$} \hfill 
+\begin{minipage}{\textwidth}
+\textbf{$it.name$} \hfill 
 $if(it.links)$
 {\footnotesize $for(it.links)$\href{$it.url$}{\faExternalLink*~$it.label$}$sep$ \hspace{8pt} $endfor$}
 $endif$
-\\[-2pt] % Stringe lo spazio tra Titolo e Stack
-\textit{\small $it.stack$}\\[2pt] % Stack leggermente più piccolo e corsivo
+\par \vspace{1pt}
+\textit{\small $it.stack$} \par \vspace{2pt}
 $it.summary$
-\vspace{8pt} % Spazio tra un progetto e l'altro
+\end{minipage}
+\par \vspace{10pt}
 $endfor$
 $endif$
 
@@ -120,7 +108,7 @@ $if(awards)$
 \section*{Awards}
 $for(awards)$
 \textbf{$it.when$ — $it.title$}\\
-$it.description$ \vspace{4pt}
+{\small $it.description$} \vspace{4pt}
 $endfor$
 $endif$
 \end{minipage}

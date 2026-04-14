@@ -72,7 +72,7 @@ skills:
   programming: ["Python (advanced)", "C (intermediate)", "C++", "Go", "Java", "SQL"]
   automation: ["Docker", "Kubernetes (k3s)", "CI/CD (GitHub Actions)", "Selenium", "Python scripting"]
   languages: ["Italian (Native)", "English (Advanced – TOEIC 920/990)"]
-  core: ["Solid understanding of algorithms, data structures, and efficient software design.", "Public speaking and technical mentoring (experience teaching to 300+ students).", "Analytical problem-solver focused on clean, maintainable code.", "Collaborative and proactive learner with strong communication."]
+  core: ["Algorithms & Data Structures", "Software Design", "Public Speaking", "Teamwork"]
 awards:
   - when: "2023"
     title: "Angelini Industries Merit Award"
