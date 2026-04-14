@@ -1,71 +1,64 @@
 \documentclass[a4paper,10pt]{article}
 
-\usepackage[margin=1.8cm]{geometry}
+\usepackage[margin=1.5cm]{geometry} % Margini leggermente ridotti per stare in una pagina
 \usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
 \usepackage{enumitem}
 \usepackage{titlesec}
-\usepackage{multicol}
 \usepackage{parskip}
 
 % --- Styling ---
 \renewcommand{\familydefault}{\sfdefault}
-\renewcommand{\baselinestretch}{1.05} % Slightly increased for better readability
+\renewcommand{\baselinestretch}{1.0} % Ridotto per compattezza
 \setlength{\parindent}{0pt}
 \pagenumbering{gobble}
 
-% Global itemize settings for clean alignment
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=12pt}
+% Global itemize settings: molto compatti
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=12pt, partopsep=0pt, parsep=0pt}
 
-% Section formatting (clean, compact)
+% Section formatting (molto compatto)
 \titleformat{\section}
   {\large\bfseries\scshape}
   {}
   {0em}
   {}
-  [\vspace{2pt}\titlerule\vspace{6pt}] % Added spacing below the rule for breathing room
+  [\vspace{-4pt}\titlerule\vspace{4pt}]
 
-% Entry macro for Education and generic entries
-\newcommand{\entry}[4]{%
+\titlespacing*{\section}{0pt}{8pt}{4pt} % Ridotto spazio prima e dopo le sezioni
+
+% Entry macro for Education
+\newcommand{\educationentry}[4]{%
   \textbf{#1} \hfill \textit{#4}\\
-  #2, #3
+  {#2, #3} \vspace{2pt}
 }
 
 \begin{document}
 
-% --- HEADER ---
+% --- HEADER (Più compatto) ---
 \begin{center}
-{\LARGE \textbf{$name$}}\\[4pt]
-\textit{$headline$}\\[6pt]
+{\LARGE \textbf{$name$}}\\[2pt]
+{\small \textit{$headline$}}\\[4pt]
+{\footnotesize
 $if(location)$\faMapMarker*~$location$ \quad$endif$
 $if(email)$\faEnvelope~\href{mailto:$email$}{$email$} \quad$endif$
-$if(phone)$\faPhone~$phone$\\[4pt]$endif$
 $if(github)$\faGithub~\href{$github.url$}{$github.label$}$endif$
 $if(linkedin)$ \quad \faLinkedin~\href{$linkedin.url$}{$linkedin.label$}$endif$
 $if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
+}
 \end{center}
-\vspace{4pt}
+\vspace{-4pt}
 
 % --- SUMMARY ---
 $if(summary)$
 \section*{Summary}
-$for(summary)$
-$summary$  
-$endfor$
-\vspace{2pt}
+{\small $for(summary)$$summary$ $sep$ $endfor$}
 $endif$
 
 % --- EDUCATION ---
 $if(education)$
 \section*{Education}
 $for(education)$
-\entry{$it.degree$}{$it.school$}{$it.city$}{$it.period$}
-$if(it.details)$
-\begin{itemize}
-\item $it.details$
-\end{itemize}
-$endif$
-\medskip
+\educationentry{$it.degree$}{$it.school$}{$it.city$}{$it.period$}
 $endfor$
 $endif$
 
@@ -74,7 +67,7 @@ $if(experience)$
 \section*{Experience}
 $for(experience)$
 \textbf{$it.title$}$if(it.type)$ — \textit{$it.type$}$endif$ \hfill \textit{$it.period$}\\
-$it.company$, $it.city$
+\textit{$it.company$}, $it.city$
 $if(it.bullets)$
 \begin{itemize}
 $for(it.bullets)$
@@ -82,14 +75,14 @@ $for(it.bullets)$
 $endfor$
 \end{itemize}
 $endif$
-\medskip
+\vspace{4pt}
 $endfor$
 $endif$
 
 % --- SKILLS ---
 $if(skills)$
 \section*{Skills}
-\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=2pt]
+\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=1pt]
     \item[] \textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$
     \item[] \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$
     $if(skills.web)$\item[] \textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$$endif$
@@ -97,8 +90,8 @@ $if(skills)$
 \end{itemize}
 
 $if(skills.core)$
-\vspace{4pt}
-\begin{itemize}[leftmargin=12pt, itemsep=1pt]
+\vspace{2pt}
+\begin{itemize}[leftmargin=12pt, itemsep=0pt]
 $for(skills.core)$
   \item $it$
 $endfor$
@@ -112,32 +105,32 @@ $if(projects)$
 $for(projects)$
 \noindent \textbf{$it.name$} \hfill 
 $if(it.links)$
-{\footnotesize $for(it.links)$\href{$it.url$}{\faExternalLink*~$it.label$}$sep$ \hspace{10pt} $endfor$}
+{\footnotesize $for(it.links)$\href{$it.url$}{\faExternalLink*~$it.label$}$sep$ \hspace{8pt} $endfor$}
 $endif$
 
-\textit{$it.stack$} \vspace{2pt}
-
-$it.summary$
-\vspace{8pt}
+\textit{$it.stack$}\\
+{\small $it.summary$}
+\vspace{4pt}
 $endfor$
 $endif$
 
-% --- AWARDS ---
+% --- AWARDS & CERTIFICATIONS (Unite per risparmiare spazio se necessario) ---
+\begin{minipage}[t]{0.5\textwidth}
 $if(awards)$
-\section*{Awards \& Achievements}
+\section*{Awards}
 $for(awards)$
-\textbf{$it.when$ — $it.title$}\\
-$it.description$ $if(it.link)$(\href{$it.link$}{View certificate})$endif$
-\medskip
+{\small \textbf{$it.when$ — $it.title$}\\
+$it.description$} \vspace{2pt}
 $endfor$
 $endif$
-
-% --- CERTIFICATIONS ---
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
 $if(certifications)$
 \section*{Certifications}
 $for(certifications)$
-\textbf{$it.when$} — \textit{$it.name$}\\
+{\small \textbf{$it.when$} — \textit{$it.name$}}\\
 $endfor$
 $endif$
+\end{minipage}
 
 \end{document}
