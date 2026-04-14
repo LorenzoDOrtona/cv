@@ -53,7 +53,6 @@ experience:
     city: "Milano"
     period: "Apr 2025 – Present"
     bullets:
-      - "Active member of PoliMi’s Linux and open-source community."
       - "Held the **Git 101** course (2026 edition) as a speaker for **300+ students**, covering essential concepts."
       - "Assisting the sysadmin team by learning **Kubernetes** to support the lab's infrastructure management."
 projects:
