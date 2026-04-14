@@ -1,6 +1,6 @@
 \documentclass[a4paper,10pt]{article}
 
-\usepackage[margin=1.5cm]{geometry} % Margini leggermente ridotti per stare in una pagina
+\usepackage[margin=1.5cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fontawesome5}
 \usepackage{enumitem}
@@ -9,36 +9,36 @@
 
 % --- Styling ---
 \renewcommand{\familydefault}{\sfdefault}
-\renewcommand{\baselinestretch}{1.0} % Ridotto per compattezza
+\renewcommand{\baselinestretch}{1.0}
 \setlength{\parindent}{0pt}
 \pagenumbering{gobble}
 
-% Global itemize settings: molto compatti
-\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=12pt, partopsep=0pt, parsep=0pt}
+% Global itemize settings: compatti ma con respiro
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=12pt, partopsep=0pt, parsep=0pt}
 
-% Section formatting (molto compatto)
+% Section formatting: linea distanziata dal testo
 \titleformat{\section}
   {\large\bfseries\scshape}
   {}
   {0em}
   {}
-  [\vspace{-4pt}\titlerule\vspace{4pt}]
+  [\vspace{2pt}\titlerule\vspace{4pt}] % Spazio sopra e sotto la linea
 
-\titlespacing*{\section}{0pt}{8pt}{4pt} % Ridotto spazio prima e dopo le sezioni
+\titlespacing*{\section}{0pt}{12pt}{6pt} % Più spazio prima delle sezioni
 
-% Entry macro for Education
+% Entry macro for Education: migliorata separazione
 \newcommand{\educationentry}[4]{%
   \textbf{#1} \hfill \textit{#4}\\
-  {#2, #3} \vspace{2pt}
+  {#2, #3} \par \vspace{4pt}
 }
 
 \begin{document}
 
-% --- HEADER (Più compatto) ---
+% --- HEADER ---
 \begin{center}
-{\LARGE \textbf{$name$}}\\[2pt]
-{\small \textit{$headline$}}\\[4pt]
-{\footnotesize
+{\LARGE \textbf{$name$}}\\[4pt]
+{\textit{$headline$}}\\[6pt]
+{\small
 $if(location)$\faMapMarker*~$location$ \quad$endif$
 $if(email)$\faEnvelope~\href{mailto:$email$}{$email$} \quad$endif$
 $if(github)$\faGithub~\href{$github.url$}{$github.label$}$endif$
@@ -46,12 +46,12 @@ $if(linkedin)$ \quad \faLinkedin~\href{$linkedin.url$}{$linkedin.label$}$endif$
 $if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
 }
 \end{center}
-\vspace{-4pt}
+\vspace{-2pt}
 
 % --- SUMMARY ---
 $if(summary)$
 \section*{Summary}
-{\small $for(summary)$$summary$ $sep$ $endfor$}
+$for(summary)$$summary$ $sep$ \par $endfor$
 $endif$
 
 % --- EDUCATION ---
@@ -75,14 +75,14 @@ $for(it.bullets)$
 $endfor$
 \end{itemize}
 $endif$
-\vspace{4pt}
+\vspace{6pt}
 $endfor$
 $endif$
 
 % --- SKILLS ---
 $if(skills)$
 \section*{Skills}
-\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=1pt]
+\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=2pt]
     \item[] \textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$
     \item[] \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$
     $if(skills.web)$\item[] \textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$$endif$
@@ -90,8 +90,8 @@ $if(skills)$
 \end{itemize}
 
 $if(skills.core)$
-\vspace{2pt}
-\begin{itemize}[leftmargin=12pt, itemsep=0pt]
+\vspace{4pt}
+\begin{itemize}[leftmargin=12pt, itemsep=1pt]
 $for(skills.core)$
   \item $it$
 $endfor$
@@ -107,20 +107,20 @@ $for(projects)$
 $if(it.links)$
 {\footnotesize $for(it.links)$\href{$it.url$}{\faExternalLink*~$it.label$}$sep$ \hspace{8pt} $endfor$}
 $endif$
-
-\textit{$it.stack$}\\
-{\small $it.summary$}
-\vspace{4pt}
+\\[-2pt] % Stringe lo spazio tra Titolo e Stack
+\textit{\small $it.stack$}\\[2pt] % Stack leggermente più piccolo e corsivo
+$it.summary$
+\vspace{8pt} % Spazio tra un progetto e l'altro
 $endfor$
 $endif$
 
-% --- AWARDS & CERTIFICATIONS (Unite per risparmiare spazio se necessario) ---
+% --- AWARDS & CERTIFICATIONS ---
 \begin{minipage}[t]{0.5\textwidth}
 $if(awards)$
 \section*{Awards}
 $for(awards)$
-{\small \textbf{$it.when$ — $it.title$}\\
-$it.description$} \vspace{2pt}
+\textbf{$it.when$ — $it.title$}\\
+$it.description$ \vspace{4pt}
 $endfor$
 $endif$
 \end{minipage}
@@ -128,7 +128,8 @@ $endif$
 $if(certifications)$
 \section*{Certifications}
 $for(certifications)$
-{\small \textbf{$it.when$} — \textit{$it.name$}}\\
+\textbf{$it.when$} — \textit{$it.name$}\\
+\vspace{2pt}
 $endfor$
 $endif$
 \end{minipage}
