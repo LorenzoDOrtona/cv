@@ -53,6 +53,9 @@ $if(education)$
 \section*{Education}
 $for(education)$
 \educationentry{$it.degree$}{$it.school$}{$it.city$}{$it.period$}
+$if(it.relevant)$
+{\footnotesize \textbf{Relevant courses:} $for(it.relevant)$$it.name$ ($it.grade$)$sep$ \textperiodcentered{} $endfor$} \par \vspace{2pt}
+$endif$
 $endfor$
 $endif$
 

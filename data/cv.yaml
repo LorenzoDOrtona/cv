@@ -16,28 +16,45 @@ education:
     school: "Politecnico di Milano"
     city: "Milano"
     period: "2025 – Present"
+    relevant: 
+      - name: "Software Engineering 2" 
+        grade: "28/30"
+        learned: ["Distributed systems design, advanced architectural patterns, and rigorous requirements engineering."] 
   - degree: "B.Sc. in Computer Science and Engineering (Final grade: 99/110)"
     school: "Politecnico di Milano"
     city: "Milano"
     period: "2022 – 2025"
+    relevant:
+      - name: "Software Engineering project" 
+        grade: "30/30"
+        learned: ["End-to-end Java implementation of a complex board game using RMI/Sockets and MVC."]
+      - name: "Software Engineering" 
+        grade: "29/30"
+        learned: ["Software lifecycle management, UML modeling, and application of Design Patterns."]
+      - name: "Algorithms and Data Structures" 
+        grade: "30/30"
+        learned: ["Complexity analysis, graph theory, and efficient data organization for performance."]
+      - name: "Data Bases" 
+        grade: "30/30"
+        learned: [""]
+
 
 experience:
   - title: "Performance Engineer Analyst"
-    type: "Part-time (24h/week)"
     company: "MOVIRI S.p.A."
     city: "Milano"
     period: "Feb 2025 – Sep 2025"
     bullets:
-      - "Developed and updated Python integrations enabling communication between **Splunk** and **Dynatrace**."
+      - "Developed and updated over **50 Python integrations** between **Splunk** and **Dynatrace**, reducing API calls by **30%** through logic optimization."
       - "Used **Selenium** for automation tasks and validation of performance workflows."
-      - "Improved monitoring workflows by automating key steps, reducing manual overhead."
+      - "Improved monitoring workflows by automating key steps, reducing manual overhead by **100%** for specific report generation tasks."
   - title: "Voting and active member"
     company: "Politecnico Open Unix Labs (POuL)"
     city: "Milano"
     period: "Apr 2025 – Present"
     bullets:
       - "Active member of PoliMi’s Linux and open-source community."
-      - "Held the **Git 101** course (2026 edition) as a speaker for 300+ third-year Computer Engineering students."
+      - "Held the **Git 101** course (2026 edition) as a speaker for **300+ students**, covering essential concepts."
       - "Assisting the sysadmin team by learning **Kubernetes** to support the lab's infrastructure management."
 projects:
   - name: "Tris Inception — Ultimate Tic-Tac-Toe"
