@@ -100,7 +100,7 @@ $if(open_source)$
 $for(open_source)$
 $if(it.cv)$
 \textbf{$it.project$} \hfill {\footnotesize \href{$it.url$}{\faExternalLink*~PR}} \\
-{\small $it.description$} \par \vspace{2pt}
+{\small $it.description$} \par \vspace{1pt}
 $endif$
 $endfor$
 $endif$
@@ -111,15 +111,14 @@ $if(projects)$
 $for(projects)$
 $if(it.cv)$
 \begin{minipage}{\textwidth}
-\textbf{$it.name$} \hfill 
+\textbf{$it.name$} --- {\footnotesize \textit{$it.stack$}} \hfill 
 $if(it.links)$
 {\footnotesize $for(it.links)$\href{$it.url$}{\faExternalLink*~$it.label$}$sep$ \hspace{8pt} $endfor$}
 $endif$
-\par \vspace{-1pt}
-\textit{\footnotesize $it.stack$} \par \vspace{1pt}
+\par \vspace{1pt}
 {\small $it.summary$}
 \end{minipage}
-\par \vspace{1pt}
+\par \vspace{3pt}
 $endif$
 $endfor$
 $endif$
