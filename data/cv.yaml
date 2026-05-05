@@ -122,14 +122,9 @@ skills:
   research_interests: ["Distributed systems", "Cloud-native infrastructure", "System observability", "Large-scale data processing"]
 
 awards:
-  - when: "2023"
-    title: "Angelini Industries Merit Award"
-    description: "Recognized as *Best Performing Student* for academic excellence (fifth year)."
-    link: "https://bestr.it/award/show/POesFfFbR-aHms2YddxMyg"
-    cv: true
-  - when: "2022"
-    title: "Angelini Industries Merit Award"
-    description: "Recognized as *Best Performing Student* for academic excellence (fourth year)."
+  - when: "2022, 2023"
+    title: "Angelini Industries Merit Award (2x)"
+    description: "Awarded as *Best Performing Student* for two consecutive years."
     link: "https://bestr.it/award/show/POesFfFbR-aHms2YddxMyg"
     cv: true
 
