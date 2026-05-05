@@ -85,8 +85,18 @@ $if(skills)$
     \item[] \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$
     $if(skills.web)$\item[] \textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$$endif$
     \item[] \textbf{Core / Soft Skills:} $for(skills.core)$$it$$sep$, $endfor$
+    $if(skills.research_interests)$\item[] \textbf{Research Interests:} $for(skills.research_interests)$$it$$sep$, $endfor$$endif$
     \item[] \textbf{Languages:} $for(skills.languages)$$it$$sep$, $endfor$
 \end{itemize}
+$endif$
+
+% --- OPEN SOURCE ---
+$if(open_source)$
+\section*{Open Source}
+$for(open_source)$
+\textbf{$it.project$} \hfill {\footnotesize \href{$it.url$}{\faExternalLink*~PR}} \\
+{\small $it.description$} \par \vspace{2pt}
+$endfor$
 $endif$
 
 % --- PROJECTS ---

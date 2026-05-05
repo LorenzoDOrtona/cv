@@ -1,5 +1,5 @@
 name: "Lorenzo D’Ortona"
-headline: "Computer Engineering student · Backend Development, Cybersecurity & Cloud-Native"
+headline: "M.Sc. CS student · Distributed Systems & Cloud-Native Infrastructure · Go, Python"
 location: "Milano, Italia"
 public_email: "contact@lorenzodortona.com"
 github:   { url: "https://github.com/LorenzoDOrtona", label: "LorenzoDOrtona" }
@@ -7,19 +7,26 @@ linkedin: { url: "https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/", labe
 leetcode: { url: "https://leetcode.com/u/lorenzodortona/", label: "LeetCode" }
 
 summary:
-  - "Computer Engineering (Cybersecurity) · Backend & Distributed Systems · Linux-first"
-  - "Detail-oriented problem solver with hands-on experience in Python, C, and Java, and a strong passion for building efficient, reliable systems."
-
+  - "Computer Engineering student at Politecnico di Milano, with a semester exchange at Chalmers University (2026–27). Focused on distributed systems, cloud-native infrastructure, and system observability."
+  - "Hands-on experience in Go, Python, and Java. Contributor to CNCF projects (Prometheus). Interested in research at the intersection of systems design and large-scale data."
 
 education:
-  - degree: "M.Sc. in computer Science and Engineering – Cybersecurity Track (in progress)"
+  - degree: "M.Sc. in Computer Science and Engineering"
     school: "Politecnico di Milano"
     city: "Milano"
     period: "2025 – Present"
-    relevant: 
-      - name: "Software Engineering 2" 
+    relevant:
+      - name: "Software Engineering 2"
         grade: "28/30"
-        learned: ["Distributed systems design, advanced architectural patterns, and rigorous requirements engineering."] 
+        learned: ["Distributed systems design, advanced architectural patterns, and rigorous requirements engineering."]
+  - degree: "Exchange Semester (incoming)"
+    school: "Chalmers University of Technology"
+    city: "Göteborg, Sweden"
+    period: "2026 – 2027"
+    relevant:
+      - name: "Computational Techniques for Large-Scale Data"
+      - name: "Statistical Learning for Big Data"
+      - name: "Design of AI Systems"
   - degree: "B.Sc. in Computer Science and Engineering (Final grade: 99/110)"
     school: "Politecnico di Milano"
     city: "Milano"
@@ -36,7 +43,7 @@ education:
         learned: ["Complexity analysis, graph theory, and efficient data organization for performance."]
       - name: "Data Bases" 
         grade: "30/30"
-        learned: [""]
+        learned: ["Relational model, SQL, and database design."]
 
 
 experience:
@@ -55,10 +62,19 @@ experience:
     bullets:
       - "Held the **Git 101** course (2026 edition) as a speaker for **300+ students**, covering essential concepts."
       - "Assisting the sysadmin team by learning **Kubernetes** to support the lab's infrastructure management."
+
+open_source:
+  - project: "Prometheus (CNCF)"
+    url: "https://github.com/prometheus/prometheus/pull/18599"
+    description: "Improved test coverage for the config validation package from 85.4% to 88.8% (PR open)."
+  - project: "dennwc/varint"
+    url: "https://github.com/dennwc/varint/pull/4"
+    description: "Added edge case and overflow tests for ProtoTag and Uvarint encoding, bringing coverage to 92.6% (merged)."
+
 projects:
-  - name: "Tris Inception — Ultimate Tic-Tac-Toe"
+  - name: "Tris Inception — Distributed Game Engine"
     stack: "Go · React · Docker · Kubernetes (k3s) · CI/CD"
-    summary: "Distributed Ultimate Tic-Tac-Toe engine with a Go backend and React frontend. Fully containerized and deployed on a self-hosted Kubernetes (k3s) cluster via a GitOps CI/CD pipeline (GitHub Actions, GHCR). Features Traefik Ingress and automated Let's Encrypt certificates."
+    summary: "Designed and deployed a distributed game engine in Go, exploring stateless backend architecture, container orchestration with self-hosted Kubernetes (k3s), and fully automated GitOps deployment via GitHub Actions. Features Traefik ingress and automated TLS certificate provisioning."
     links:
       - label: "Demo"
         url: "https://tris.lorenzodortona.com"
@@ -89,6 +105,8 @@ skills:
   automation: ["Docker", "Kubernetes (k3s)", "CI/CD (GitHub Actions)", "Selenium", "Python scripting"]
   languages: ["Italian (Native)", "English (Advanced – TOEIC 920/990)"]
   core: ["Algorithms & Data Structures", "Software Design", "Public Speaking", "Teamwork"]
+  research_interests: ["Distributed systems", "Cloud-native infrastructure", "System observability", "Large-scale data processing"]
+
 awards:
   - when: "2023"
     title: "Angelini Industries Merit Award"

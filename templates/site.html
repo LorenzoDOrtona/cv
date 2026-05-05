@@ -267,9 +267,36 @@
             </ul>
           </div>
           $endif$
+
+          $if(skills.research_interests)$
+          <div class="skills-group" style="margin-top: 24px;">
+            <span class="skills-label">Research Interests</span>
+            <div class="tags">
+              $for(skills.research_interests)$<span class="tag" style="border-color: var(--acc-soft);">$it$</span>$endfor$
+            </div>
+          </div>
+          $endif$
         </div>
       </div>
     </section>
+
+    <!-- OPEN SOURCE -->
+    $if(open_source)$
+    <section id="opensource">
+      <h2>Open Source Contributions</h2>
+      <div class="grid">
+        $for(open_source)$
+        <article class="card" style="border-style: dashed;">
+          <h3>$it.project$</h3>
+          <p>$it.description$</p>
+          <div class="links">
+            <a href="$it.url$" target="_blank" rel="noreferrer">View Pull Request →</a>
+          </div>
+        </article>
+        $endfor$
+      </div>
+    </section>
+    $endif$
 
     <!-- CONTACT -->
     <section id="contatti" style="text-align: center; padding: 100px 0;">
