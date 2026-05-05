@@ -52,10 +52,12 @@ $if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
 $if(education)$
 \section*{Education}
 $for(education)$
+$if(it.cv)$
 \educationentry{$it.degree$}{$it.school$}{$it.city$}{$it.period$}
 $if(it.relevant)$
 \vspace{-4pt}
 {\footnotesize \textbf{Relevant courses:} $for(it.relevant)$$it.name$ ($it.grade$)$sep$ \textperiodcentered{} $endfor$} \par \vspace{2pt}
+$endif$
 $endif$
 $endfor$
 $endif$
@@ -64,6 +66,7 @@ $endif$
 $if(experience)$
 \section*{Experience}
 $for(experience)$
+$if(it.cv)$
 \textbf{$it.title$}$if(it.type)$ — \textit{$it.type$}$endif$ \hfill \textit{$it.period$}\\
 \textit{$it.company$}, $it.city$
 $if(it.bullets)$
@@ -74,6 +77,7 @@ $endfor$
 \end{itemize}
 $endif$
 \vspace{2pt}
+$endif$
 $endfor$
 $endif$
 
@@ -94,8 +98,10 @@ $endif$
 $if(open_source)$
 \section*{Open Source}
 $for(open_source)$
+$if(it.cv)$
 \textbf{$it.project$} \hfill {\footnotesize \href{$it.url$}{\faExternalLink*~PR}} \\
 {\small $it.description$} \par \vspace{2pt}
+$endif$
 $endfor$
 $endif$
 
@@ -103,6 +109,7 @@ $endif$
 $if(projects)$
 \section*{Projects}
 $for(projects)$
+$if(it.cv)$
 \begin{minipage}{\textwidth}
 \textbf{$it.name$} \hfill 
 $if(it.links)$
@@ -113,6 +120,7 @@ $endif$
 {\small $it.summary$}
 \end{minipage}
 \par \vspace{1pt}
+$endif$
 $endfor$
 $endif$
 
@@ -121,8 +129,10 @@ $endif$
 $if(awards)$
 \section*{Awards}
 $for(awards)$
+$if(it.cv)$
 {\small \textbf{$it.when$ — $it.title$}\\
 \footnotesize $it.description$} \par \vspace{2pt}
+$endif$
 $endfor$
 $endif$
 \end{minipage}
@@ -131,7 +141,9 @@ $endif$
 $if(certifications)$
 \section*{Certifications}
 $for(certifications)$
+$if(it.cv)$
 {\small \textbf{$it.when$} — \textit{$it.name$}} \par \vspace{2pt}
+$endif$
 $endfor$
 $endif$
 \end{minipage}

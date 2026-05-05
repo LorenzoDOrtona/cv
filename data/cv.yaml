@@ -6,6 +6,9 @@ github:   { url: "https://github.com/LorenzoDOrtona", label: "LorenzoDOrtona" }
 linkedin: { url: "https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/", label: "LinkedIn" }
 leetcode: { url: "https://leetcode.com/u/lorenzodortona/", label: "LeetCode" }
 
+# Il flag 'cv' determina se un elemento appare nel PDF (true) o solo sul sito (false/assente).
+# Questo aiuta a mantenere il CV entro una singola pagina.
+
 summary:
   - "Computer Engineering student at Politecnico di Milano, with a semester exchange at Chalmers University (2026–27). Focused on distributed systems, cloud-native infrastructure, and system observability."
   - "Hands-on experience in Go, Python, and Java. Contributor to CNCF projects (Prometheus). Interested in research at the intersection of systems design and large-scale data."
@@ -15,6 +18,7 @@ education:
     school: "Politecnico di Milano"
     city: "Milano"
     period: "2025 – Present"
+    cv: true
     relevant:
       - name: "Software Engineering 2"
         grade: "28/30"
@@ -23,6 +27,7 @@ education:
     school: "Chalmers University of Technology"
     city: "Göteborg, Sweden"
     period: "2026 – 2027"
+    cv: true
     relevant:
       - name: "Computational Techniques for Large-Scale Data"
       - name: "Statistical Learning for Big Data"
@@ -31,6 +36,7 @@ education:
     school: "Politecnico di Milano"
     city: "Milano"
     period: "2022 – 2025"
+    cv: true
     relevant:
       - name: "Software Engineering project" 
         grade: "30/30"
@@ -51,6 +57,7 @@ experience:
     company: "MOVIRI S.p.A."
     city: "Milano"
     period: "Feb 2025 – Sep 2025"
+    cv: true
     bullets:
       - "Developed and updated over **50 Python integrations** between **Splunk** and **Dynatrace**, reducing API calls by **30%** through logic optimization."
       - "Used **Selenium** for automation tasks and validation of performance workflows."
@@ -59,6 +66,7 @@ experience:
     company: "Politecnico Open Unix Labs (POuL)"
     city: "Milano"
     period: "Apr 2025 – Present"
+    cv: true
     bullets:
       - "Held the **Git 101** course (2026 edition) as a speaker for **300+ students**, covering essential concepts."
       - "Assisting the sysadmin team by learning **Kubernetes** to support the lab's infrastructure management."
@@ -67,14 +75,17 @@ open_source:
   - project: "Prometheus (CNCF)"
     url: "https://github.com/prometheus/prometheus/pull/18599"
     description: "Improved test coverage for the config validation package from 85.4% to 88.8% (PR open)."
+    cv: true
   - project: "dennwc/varint"
     url: "https://github.com/dennwc/varint/pull/4"
     description: "Added edge case and overflow tests for ProtoTag and Uvarint encoding, bringing coverage to 92.6% (merged)."
+    cv: true
 
 projects:
   - name: "Tris Inception — Distributed Game Engine"
     stack: "Go · React · Docker · Kubernetes (k3s) · CI/CD"
     summary: "Designed and deployed a distributed game engine in Go, exploring stateless backend architecture, container orchestration with self-hosted Kubernetes (k3s), and fully automated GitOps deployment via GitHub Actions. Features Traefik ingress and automated TLS certificate provisioning."
+    cv: true
     links:
       - label: "Demo"
         url: "https://tris.lorenzodortona.com"
@@ -85,6 +96,7 @@ projects:
   - name: "Galaxy Trucker"
     stack: "Java · Java RMI · Socket · Java FX GUI · MVC pattern"
     summary: "Java client-server implementation of the board game Galaxy Trucker using RMI and sockets, with JavaFX GUI and MVC architecture. Team project focused on networking, concurrency, and software design."
+    cv: true
     links:
       - label: "Repo"
         url: "https://github.com/LorenzoDOrtona/Galaxy-Trucker"
@@ -92,9 +104,11 @@ projects:
   - name: "Personal Homelab & Self-Hosted Photos"
     stack: "Linux · Docker · Immich · Tailscale"
     summary: "Personal homelab set up to experiment with self-hosting and private networking. Installed and ran Immich on a Linux server using Docker, with secure remote access from mobile devices via Tailscale, focusing on system setup, networking, and data ownership."
+    cv: false
   - name: "Automated Portfolio & CV"
     stack: "GitHub Actions · Pandoc · Tectonic · Cloudflare Pages"
     summary: "A CI/CD pipeline that automatically generates my web portfolio (HTML/CSS) and professional CV (LaTeX/PDF) from a single YAML source. It ensures data consistency across formats and automates deployment to my custom domain."
+    cv: true
     links:
       - label: "Repo"
         url: "https://github.com/LorenzoDOrtona/cv"
@@ -112,15 +126,20 @@ awards:
     title: "Angelini Industries Merit Award"
     description: "Recognized as *Best Performing Student* for academic excellence (fifth year)."
     link: "https://bestr.it/award/show/POesFfFbR-aHms2YddxMyg"
+    cv: true
   - when: "2022"
     title: "Angelini Industries Merit Award"
     description: "Recognized as *Best Performing Student* for academic excellence (fourth year)."
     link: "https://bestr.it/award/show/POesFfFbR-aHms2YddxMyg"
+    cv: true
 
 certifications:
   - when: "2024"
     name: "TOEIC English Test – Score: 920/990"
+    cv: true
   - when: "2024-01"
     name: "CCNA: Introduction to Networks"
+    cv: true
   - when: "2022-03"
     name: "Game Theory (PoliCollege – pre-admission, PoliMi)"
+    cv: false
