@@ -6,8 +6,8 @@ github:   { url: "https://github.com/LorenzoDOrtona", label: "LorenzoDOrtona" }
 linkedin: { url: "https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/", label: "LinkedIn" }
 leetcode: { url: "https://leetcode.com/u/lorenzodortona/", label: "LeetCode" }
 
-# Il flag 'cv' determina se un elemento appare nel PDF (true) o solo sul sito (false/assente).
-# Questo aiuta a mantenere il CV entro una singola pagina.
+# The 'cv' flag determines if an item appears in the PDF (true) or only on the site (false/missing).
+# This helps keep the PDF CV within a single page.
 
 summary:
   - "Computer Engineering student at Politecnico di Milano, with a semester exchange at Chalmers University (2026–27). Focused on distributed systems, cloud-native infrastructure, and system observability."
@@ -107,7 +107,7 @@ projects:
     cv: false
   - name: "Automated Portfolio & CV"
     stack: "GitHub Actions · Pandoc · Tectonic · Cloudflare Pages"
-    summary: "A CI/CD pipeline that automatically generates my web portfolio (HTML/CSS) and professional CV (LaTeX/PDF) from a single YAML source. It ensures data consistency across formats and automates deployment to my custom domain."
+    summary: "CI/CD pipeline to auto-generate portfolio and CV from a single YAML source (GitHub Actions, Cloudflare Pages)."
     cv: true
     links:
       - label: "Repo"

@@ -56,7 +56,7 @@ $if(it.cv)$
 \educationentry{$it.degree$}{$it.school$}{$it.city$}{$it.period$}
 $if(it.relevant)$
 \vspace{-4pt}
-{\footnotesize \textbf{Relevant courses:} $for(it.relevant)$$it.name$ ($it.grade$)$sep$ \textperiodcentered{} $endfor$} \par \vspace{2pt}
+{\footnotesize \textbf{Relevant courses:} $for(it.relevant)$$it.name$$if(it.grade)$ ($it.grade$)$endif$$sep$ \textperiodcentered{} $endfor$} \par \vspace{2pt}
 $endif$
 $endif$
 $endfor$
