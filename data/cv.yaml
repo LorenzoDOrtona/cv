@@ -72,6 +72,10 @@ experience:
       - "Assisting the sysadmin team by learning **Kubernetes** to support the lab's infrastructure management."
 
 open_source:
+  - project: "DuckDB"
+    url: "https://github.com/duckdb/duckdb/pull/22564"
+    description: "Added duckdb_secret_type_parameters() system table function to expose secret-type parameter schemas via SQL (PR open)."
+    cv: true
   - project: "Prometheus (CNCF)"
     url: "https://github.com/prometheus/prometheus/pull/18599"
     description: "Improved test coverage for the config validation package from 85.4% to 88.8% (PR open)."
@@ -79,9 +83,17 @@ open_source:
   - project: "dennwc/varint"
     url: "https://github.com/dennwc/varint/pull/4"
     description: "Added edge case and overflow tests for ProtoTag and Uvarint encoding, bringing coverage to 92.6% (merged)."
-    cv: true
+    cv: false
 
 projects:
+  - name: "LSM6DSOX — Linux Kernel IIO Driver"
+    stack: "C · Linux Kernel · IIO · Regmap · I2C"
+    summary: "Educational Linux kernel driver for the ST LSM6DSOX 6-axis IMU (accelerometer & gyroscope). Integrated with the Industrial I/O (IIO) subsystem supporting sysfs direct reads, high-speed streaming via triggered kfifo buffers, regmap over I2C, and devm resource management."
+    cv: true
+    links:
+      - label: "Repo"
+        url: "https://github.com/LorenzoDOrtona/lsm6dsox_driver"
+        new_tab: true
   - name: "Tris Inception — Distributed Game Engine"
     stack: "Go · React · Docker · Kubernetes (k3s) · CI/CD"
     summary: "Designed and deployed a distributed game engine in Go, exploring stateless backend architecture, container orchestration with self-hosted Kubernetes (k3s), and fully automated GitOps deployment via GitHub Actions. Features Traefik ingress and automated TLS certificate provisioning."
@@ -108,7 +120,7 @@ projects:
   - name: "Automated Portfolio & CV"
     stack: "GitHub Actions · Pandoc · Tectonic · Cloudflare Pages"
     summary: "CI/CD pipeline to auto-generate portfolio and CV from a single YAML source (GitHub Actions, Cloudflare Pages)."
-    cv: true
+    cv: false
     links:
       - label: "Repo"
         url: "https://github.com/LorenzoDOrtona/cv"
