@@ -1,5 +1,5 @@
 name: "Lorenzo D’Ortona"
-headline: "M.Sc. CS student · Distributed Systems & Cloud-Native Infrastructure · Go, Python"
+headline: "M.Sc. CS student · Distributed Systems & Systems Programming · Go, C, Python"
 location: "Milano, Italia"
 public_email: "contact@lorenzodortona.com"
 github:   { url: "https://github.com/LorenzoDOrtona", label: "LorenzoDOrtona" }
@@ -10,8 +10,8 @@ leetcode: { url: "https://leetcode.com/u/lorenzodortona/", label: "LeetCode" }
 # This helps keep the PDF CV within a single page.
 
 summary:
-  - "Computer Engineering student at Politecnico di Milano, with a semester exchange at Chalmers University (2026–27). Focused on distributed systems, cloud-native infrastructure, and system observability."
-  - "Hands-on experience in Go, Python, and Java. Contributor to CNCF projects (Prometheus). Interested in research at the intersection of systems design and large-scale data."
+  - "M.Sc. Computer Science and Engineering student at Politecnico di Milano, with an exchange semester at Chalmers University of Technology (2026–27). Builds software systems end to end, from Linux kernel drivers to distributed backends deployed on self-hosted Kubernetes."
+  - "Merged contributor to DuckDB. Interested in building distributed systems, databases, and large-scale data processing."
 
 education:
   - degree: "M.Sc. in Computer Science and Engineering"
@@ -20,6 +20,16 @@ education:
     period: "2025 – Present"
     cv: true
     relevant:
+      - name: "Computing Infrastructures"
+        grade: "30L/30"
+      - name: "Embedded Systems"
+        grade: "30L/30"
+      - name: "Security and Resilience of Critical Infrastructures"
+        grade: "30L/30"
+      - name: "Advanced Operating Systems"
+        grade: "28/30"
+      - name: "Advanced Computer Architectures"
+        grade: "28/30"
       - name: "Software Engineering 2"
         grade: "28/30"
         learned: ["Distributed systems design, advanced architectural patterns, and rigorous requirements engineering."]
@@ -61,7 +71,7 @@ experience:
     bullets:
       - "Developed and updated over **50 Python integrations** between **Splunk** and **Dynatrace**, reducing API calls by **30%** through logic optimization."
       - "Used **Selenium** for automation tasks and validation of performance workflows."
-      - "Improved monitoring workflows by automating key steps, reducing manual overhead by **100%** for specific report generation tasks."
+      - "Automated key steps of recurring report-generation workflows, **eliminating the manual work** for those reports."
   - title: "Voting and active member"
     company: "Politecnico Open Unix Labs (POuL)"
     city: "Milano"
@@ -74,26 +84,21 @@ experience:
 open_source:
   - project: "DuckDB"
     url: "https://github.com/duckdb/duckdb/pull/22564"
-    description: "Added duckdb_secret_type_parameters() system table function to expose secret-type parameter schemas via SQL (PR open)."
+    description: "Added the duckdb_secret_type_parameters() system table function, exposing secret-type parameter schemas via SQL (merged)."
     cv: true
+  # Kept on the site only: low-impact (test coverage), not worth PDF space next to DuckDB.
   - project: "Prometheus (CNCF)"
     url: "https://github.com/prometheus/prometheus/pull/18599"
     description: "Improved test coverage for the config validation package from 85.4% to 88.8% (PR open)."
-    cv: true
+    cv: false
   - project: "dennwc/varint"
     url: "https://github.com/dennwc/varint/pull/4"
     description: "Added edge case and overflow tests for ProtoTag and Uvarint encoding, bringing coverage to 92.6% (merged)."
     cv: false
 
 projects:
-  - name: "LSM6DSOX — Linux Kernel IIO Driver"
-    stack: "C · Linux Kernel · IIO · Regmap · I2C"
-    summary: "Educational Linux kernel driver for the ST LSM6DSOX 6-axis IMU (accelerometer & gyroscope). Integrated with the Industrial I/O (IIO) subsystem supporting sysfs direct reads, high-speed streaming via triggered kfifo buffers, regmap over I2C, and devm resource management."
-    cv: true
-    links:
-      - label: "Repo"
-        url: "https://github.com/LorenzoDOrtona/lsm6dsox_driver"
-        new_tab: true
+  # Tris Inception first: it is the project closest to the roles you are targeting.
+  # TODO: add one concrete number or finding (e.g. concurrent games tested, deploy time, failure behavior).
   - name: "Tris Inception — Distributed Game Engine"
     stack: "Go · React · Docker · Kubernetes (k3s) · CI/CD"
     summary: "Designed and deployed a distributed game engine in Go, exploring stateless backend architecture, container orchestration with self-hosted Kubernetes (k3s), and fully automated GitOps deployment via GitHub Actions. Features Traefik ingress and automated TLS certificate provisioning."
@@ -104,6 +109,14 @@ projects:
         new_tab: true
       - label: "Repo"
         url: "https://github.com/LorenzoDOrtona/Tris_Inception"
+        new_tab: true
+  - name: "LSM6DSOX — Linux Kernel IIO Driver"
+    stack: "C · Linux Kernel · IIO · Regmap · I2C"
+    summary: "Educational Linux kernel driver for the ST LSM6DSOX 6-axis IMU (accelerometer & gyroscope). Integrated with the Industrial I/O (IIO) subsystem supporting sysfs direct reads, high-speed streaming via triggered kfifo buffers, regmap over I2C, and devm resource management."
+    cv: true
+    links:
+      - label: "Repo"
+        url: "https://github.com/LorenzoDOrtona/lsm6dsox_driver"
         new_tab: true
   - name: "Galaxy Trucker"
     stack: "Java · Java RMI · Socket · Java FX GUI · MVC pattern"
@@ -128,10 +141,10 @@ projects:
 
 skills:
   programming: ["Python (advanced)", "C (intermediate)", "C++", "Go", "Java", "SQL"]
-  automation: ["Docker", "Kubernetes (k3s)", "CI/CD (GitHub Actions)", "Selenium", "Python scripting"]
+  automation: ["Docker", "Kubernetes (k3s)", "CI/CD (GitHub Actions)", "Selenium"]
   languages: ["Italian (Native)", "English (Advanced – TOEIC 920/990)"]
-  core: ["Algorithms & Data Structures", "Software Design", "Public Speaking", "Teamwork"]
-  research_interests: ["Distributed systems", "Cloud-native infrastructure", "System observability", "Large-scale data processing"]
+  core: ["Algorithms & Data Structures", "Distributed Systems", "Linux"]
+  research_interests: ["Distributed systems", "Databases & data systems", "Systems programming", "Large-scale data processing"]
 
 awards:
   - when: "2022, 2023"
@@ -150,4 +163,3 @@ certifications:
   - when: "2022-03"
     name: "Game Theory (PoliCollege – pre-admission, PoliMi)"
     cv: false
-
