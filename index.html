@@ -1,55 +1,133 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lorenzo D’Ortona — Portfolio</title>
   <meta name="description" content="Portfolio di Lorenzo
-D’Ortona: progetti, esperienza e contatti. Computer Engineering student
-· Backend Development, Cybersecurity &amp; Cloud-Native" />
+D’Ortona: progetti, esperienza e contatti. M.Sc. CS student ·
+Distributed Systems &amp; Systems Programming · Go, C, Python" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#0b0b0c;--fg:#f4f4f5;--muted:#a1a1aa;--acc:#7c3aed;--card:#111113;--border:#232326;
-      --max:1000px;
+    :root {
+      --bg: #09090b;
+      --fg: #fafafa;
+      --muted: #a1a1aa;
+      --acc: #8b5cf6;
+      --acc-soft: rgba(139, 92, 246, 0.1);
+      --card: #121215;
+      --border: #27272a;
+      --max: 1100px;
+      --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    a{color:var(--fg);text-decoration:none}
-    a:hover{color:var(--acc)}
-    header{position:sticky;top:0;background:rgba(11,11,12,.6);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border)}
-    nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    nav .brand{font-weight:700;letter-spacing:.4px}
-    nav .links a{margin-left:18px;font-size:.95rem;color:var(--muted)}
-    .wrap{max-width:var(--max);margin:0 auto;padding:32px 20px}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:40px 0}
-    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:.8rem}
-    h1{font-size:2.5rem;line-height:1.15;margin:14px 0}
-    p.lead{color:var(--muted);max-width:65ch}
-    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
-    .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--acc),#2563eb);color:white}
 
-    .section{padding:24px 0}
-    .section h2{font-size:1.4rem;margin:0 0 10px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
-    .card h3{margin:0 0 6px;font-size:1.05rem}
-    .meta{color:var(--muted);font-size:.9rem}
-
-    .about{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .list{margin:0;padding-left:18px;color:var(--muted)}
-
-    footer{border-top:1px solid var(--border);margin-top:40px}
-    .foot{max-width:var(--max);margin:0 auto;padding:24px 20px;display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem}
-
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr 1fr}
-      .about{grid-template-columns:1fr}
+    * { box-sizing: border-box; transition: all 0.2s ease; }
+    html { scroll-behavior: smooth; }
+    body { 
+      margin: 0; padding: 0; 
+      background: var(--bg); color: var(--fg); 
+      font: 16px/1.6 var(--font-main);
+      -webkit-font-smoothing: antialiased;
     }
-    @media (max-width:600px){
-      .grid{grid-template-columns:1fr}
+
+    a { color: var(--fg); text-decoration: none; }
+    a:hover { color: var(--acc); }
+
+    header { 
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(9, 9, 11, 0.8); 
+      backdrop-filter: blur(12px); 
+      border-bottom: 1px solid var(--border); 
+    }
+    nav { 
+      max-width: var(--max); margin: 0 auto; 
+      display: flex; align-items: center; justify-content: space-between; 
+      padding: 16px 24px; 
+    }
+    nav .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.5px; }
+    nav .links a { margin-left: 20px; font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+    nav .links a:hover { color: var(--fg); }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 40px 24px; }
+
+    /* Hero */
+    .hero { padding: 80px 0; max-width: 800px; }
+    .badge { 
+      display: inline-block; padding: 4px 12px; 
+      background: var(--acc-soft); border: 1px solid var(--acc);
+      border-radius: 999px; color: var(--acc); 
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;
+    }
+    h1 { font-size: 3.5rem; line-height: 1.1; margin: 0 0 24px; font-weight: 800; letter-spacing: -2px; }
+    p.lead { font-size: 1.25rem; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+    
+    .cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { 
+      padding: 12px 20px; border: 1px solid var(--border); 
+      border-radius: 10px; background: var(--card); 
+      font-weight: 600; font-size: 0.95rem; cursor: pointer;
+    }
+    .btn:hover { border-color: var(--muted); transform: translateY(-2px); }
+    .btn.primary { 
+      background: var(--fg); color: var(--bg); border: none;
+    }
+    .btn.primary:hover { opacity: 0.9; }
+
+    /* Sections */
+    section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.8rem; margin: 0 0 32px; font-weight: 700; letter-spacing: -0.5px; }
+
+    /* Projects Grid */
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .card { 
+      background: var(--card); border: 1px solid var(--border); 
+      border-radius: 20px; padding: 28px; 
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative; overflow: hidden;
+    }
+    .card:hover { 
+      border-color: var(--acc); 
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
+    }
+    .card h3 { margin: 0; font-size: 1.3rem; font-weight: 700; }
+    .card .meta { 
+      font-family: var(--font-mono); font-size: 0.8rem; 
+      color: var(--acc); letter-spacing: -0.2px;
+    }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; flex-grow: 1; }
+    .card .links { display: flex; gap: 16px; font-weight: 600; font-size: 0.9rem; }
+
+    /* Experience Timeline */
+    .exp-item { margin-bottom: 40px; display: grid; grid-template-columns: 200px 1fr; gap: 20px; }
+    .exp-date { color: var(--muted); font-family: var(--font-mono); font-size: 0.9rem; }
+    .exp-content h3 { margin: 0 0 4px; font-size: 1.15rem; }
+    .exp-company { color: var(--acc); font-weight: 600; margin-bottom: 12px; display: block; }
+    .exp-bullets { margin: 0; padding-left: 18px; color: var(--muted); }
+    .exp-bullets li { margin-bottom: 8px; }
+
+    /* Skills/About */
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .skills-group { margin-bottom: 24px; }
+    .skills-label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: var(--card); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
+
+    footer { border-top: 1px solid var(--border); padding: 40px 0; background: #050507; }
+    .foot { max-width: var(--max); margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; color: var(--muted); font-size: 0.9rem; }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 2.8rem; }
+      .grid { grid-template-columns: 1fr; }
+      .about-split { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
     }
   </style>
 </head>
@@ -58,9 +136,9 @@ D’Ortona: progetti, esperienza e contatti. Computer Engineering student
     <nav>
       <div class="brand">Lorenzo D’Ortona</div>
       <div class="links">
-        <a href="https://github.com/LorenzoDOrtona" target="_blank" rel="noreferrer">LorenzoDOrtona</a>
-        <a href="https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://leetcode.com/u/lorenzodortona/" target="_blank" rel="noreferrer">LeetCode</a>
+        <a href="#progetti">Projects</a>
+        <a href="#esperienza">Experience</a>
+        <a href="#contatti">Contact</a>
       </div>
     </nav>
   </header>
@@ -68,133 +146,275 @@ D’Ortona: progetti, esperienza e contatti. Computer Engineering student
   <main class="wrap">
     <!-- HERO -->
     <section class="hero">
-      <div>
-        <span class="badge">Computer Engineering student · Backend
-Development, Cybersecurity &amp; Cloud-Native</span>
-        <h1>Build clean, fast, useful software.</h1>
-                            <p class="lead">Computer Engineering
-(Cybersecurity) · Backend &amp; Distributed Systems · Linux-first</p>
-                    <p class="lead">Detail-oriented problem solver with
-hands-on experience in Python, C, and Java, and a strong passion for
-building efficient, reliable systems.</p>
-                          <div class="cta">
-          <a class="btn primary" href="#progetti">View projects</a>
-          <a class="btn" href="mailto:contact@lorenzodortona.com">Email me</a>
-          <a class="btn" href="https://github.com/LorenzoDOrtona" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://leetcode.com/u/lorenzodortona/" target="_blank" rel="noreferrer">LeetCode</a>
-        </div>
+      <span class="badge">M.Sc. CS student · Distributed Systems &amp;
+Systems Programming · Go, C, Python</span>
+      <h1>Build clean, fast, useful software.</h1>
+                      <p class="lead">M.Sc. Computer Science and
+Engineering student at Politecnico di Milano, with an exchange semester
+at Chalmers University of Technology (2026–27). Builds software systems
+end to end, from Linux kernel drivers to distributed backends deployed
+on self-hosted Kubernetes.</p>
+                <p class="lead">Merged contributor to DuckDB. Interested
+in building distributed systems, databases, and large-scale data
+processing.</p>
+                    <div class="cta">
+        <a class="btn primary" href="#progetti">View projects</a>
+        <a class="btn" href="mailto:contact@lorenzodortona.com">Email me</a>
+        <a class="btn" href="https://github.com/LorenzoDOrtona" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </section>
 
-    <!-- PROGETTI: SOLO SE ESISTE projects: NELLO YAML -->
-        <section class="section" id="progetti">
-      <h2>Personal projects</h2>
+    <!-- PROGETTI -->
+        <section id="progetti">
+      <h2>Featured Work</h2>
       <div class="grid">
                 <article class="card">
-          <h3>Tris Inception — Ultimate Tic-Tac-Toe</h3>
-                    <div class="meta">Go · React · Docker · Kubernetes
-(k3s) · CI/CD</div>
-                              <p>Distributed Ultimate Tic-Tac-Toe engine
-with a Go backend and React frontend. Fully containerized and deployed
-on a self-hosted Kubernetes (k3s) cluster via a GitOps CI/CD pipeline
-(GitHub Actions, GHCR). Features Traefik Ingress and automated Let’s
-Encrypt certificates.</p>
-                              <p>
-                          <a href="https://tris.lorenzodortona.com" target="_blank" rel="noreferrer">Demo</a> · 
-                          <a href="https://github.com/LorenzoDOrtona/Tris_Inception" target="_blank" rel="noreferrer">Repo</a>          </p>
+          <div class="meta">Go · React · Docker · Kubernetes (k3s) ·
+CI/CD</div>
+          <h3>Tris Inception — Distributed Game Engine</h3>
+                    <p>Designed and deployed a distributed game engine
+in Go, exploring stateless backend architecture, container orchestration
+with self-hosted Kubernetes (k3s), and fully automated GitOps deployment
+via GitHub Actions. Features Traefik ingress and automated TLS
+certificate provisioning.</p>
+                              <div class="links">
+                          <a href="https://tris.lorenzodortona.com" target="_blank" rel="noreferrer">Demo →</a>
+                          <a href="https://github.com/LorenzoDOrtona/Tris_Inception" target="_blank" rel="noreferrer">Repo →</a>
+                      </div>
                   </article>
                 <article class="card">
+          <div class="meta">C · Linux Kernel · IIO · Regmap · I2C</div>
+          <h3>LSM6DSOX — Linux Kernel IIO Driver</h3>
+                    <p>Educational Linux kernel driver for the ST
+LSM6DSOX 6-axis IMU (accelerometer &amp; gyroscope). Integrated with the
+Industrial I/O (IIO) subsystem supporting sysfs direct reads, high-speed
+streaming via triggered kfifo buffers, regmap over I2C, and devm
+resource management.</p>
+                              <div class="links">
+                          <a href="https://github.com/LorenzoDOrtona/lsm6dsox_driver" target="_blank" rel="noreferrer">Repo →</a>
+                      </div>
+                  </article>
+                <article class="card">
+          <div class="meta">Java · Java RMI · Socket · Java FX GUI · MVC
+pattern</div>
           <h3>Galaxy Trucker</h3>
-                    <div class="meta">Java · Java RMI · Socket · Java FX
-GUI · MVC pattern</div>
-                              <p>Java client-server implementation of
-the board game Galaxy Trucker using RMI and sockets, with JavaFX GUI and
-MVC architecture. Team project focused on networking, concurrency, and
+                    <p>Java client-server implementation of the board
+game Galaxy Trucker using RMI and sockets, with JavaFX GUI and MVC
+architecture. Team project focused on networking, concurrency, and
 software design.</p>
-                              <p>
-                          <a href="https://github.com/LorenzoDOrtona/Galaxy-Trucker" target="_blank" rel="noreferrer">Repo</a>          </p>
+                              <div class="links">
+                          <a href="https://github.com/LorenzoDOrtona/Galaxy-Trucker" target="_blank" rel="noreferrer">Repo →</a>
+                      </div>
                   </article>
                 <article class="card">
+          <div class="meta">Linux · Docker · Immich · Tailscale</div>
           <h3>Personal Homelab &amp; Self-Hosted Photos</h3>
-                    <div class="meta">Linux · Docker · Immich ·
-Tailscale</div>
-                              <p>Personal homelab set up to experiment
-with self-hosting and private networking. Installed and ran Immich on a
-Linux server using Docker, with secure remote access from mobile devices
-via Tailscale, focusing on system setup, networking, and data
-ownership.</p>
+                    <p>Personal homelab set up to experiment with
+self-hosting and private networking. Installed and ran Immich on a Linux
+server using Docker, with secure remote access from mobile devices via
+Tailscale, focusing on system setup, networking, and data ownership.</p>
                             </article>
                 <article class="card">
+          <div class="meta">GitHub Actions · Pandoc · Tectonic ·
+Cloudflare Pages</div>
           <h3>Automated Portfolio &amp; CV</h3>
-                    <div class="meta">GitHub Actions · Pandoc · Tectonic
-· Cloudflare Pages</div>
-                              <p>A CI/CD pipeline that automatically
-generates my web portfolio (HTML/CSS) and professional CV (LaTeX/PDF)
-from a single YAML source. It ensures data consistency across formats
-and automates deployment to my custom domain.</p>
-                              <p>
-                          <a href="https://github.com/LorenzoDOrtona/cv" target="_blank" rel="noreferrer">Repo</a>          </p>
-                  </article>
-                <article class="card">
-          <h3>ZoneFlow</h3>
-                    <div class="meta">HCI · UX Research · Figma · HTML ·
-CSS</div>
-                              <p>Human-centered design project focused
-on helping students discover and coordinate public study spaces.
-Team-based work covering user research, personas, wireframing,
-prototyping, usability testing, and iterative design.</p>
-                              <p>
-                          <a href="https://www.figma.com/proto/G4G4y2kwpZ3Rn74cqsDzF3/PDL-Labs—ZoneFlow?node-id=2141-1111&amp;p=f&amp;t=8pzgX4MEn2P5693i-0&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=2141%3A1098&amp;show-proto-sidebar=1" target="_blank" rel="noreferrer">Figma
-Demo</a> · 
-                          <a href="https://github.com/LorenzoDOrtona/Progetto_HCI" target="_blank" rel="noreferrer">Repo</a>          </p>
+                    <p>CI/CD pipeline to auto-generate portfolio and CV
+from a single YAML source (GitHub Actions, Cloudflare Pages).</p>
+                              <div class="links">
+                          <a href="https://github.com/LorenzoDOrtona/cv" target="_blank" rel="noreferrer">Repo →</a>
+                      </div>
                   </article>
               </div>
     </section>
     
+    <!-- EXPERIENCE -->
+        <section id="esperienza">
+      <h2>Experience</h2>
+      <div class="timeline">
+                <div class="exp-item">
+          <div class="exp-date">Feb 2025 – Sep 2025</div>
+          <div class="exp-content">
+            <h3>Performance Engineer Analyst</h3>
+            <span class="exp-company">MOVIRI S.p.A. · Milano</span>
+                        <ul class="exp-bullets">
+                            <li>Developed and updated over <strong>50
+Python integrations</strong> between <strong>Splunk</strong> and
+<strong>Dynatrace</strong>, reducing API calls by <strong>30%</strong>
+through logic optimization.</li>
+                            <li>Used <strong>Selenium</strong> for
+automation tasks and validation of performance workflows.</li>
+                            <li>Automated key steps of recurring
+report-generation workflows, <strong>eliminating the manual
+work</strong> for those reports.</li>
+                          </ul>
+                      </div>
+        </div>
+                <div class="exp-item">
+          <div class="exp-date">Apr 2025 – Present</div>
+          <div class="exp-content">
+            <h3>Voting and active member</h3>
+            <span class="exp-company">Politecnico Open Unix Labs
+(POuL) · Milano</span>
+                        <ul class="exp-bullets">
+                            <li>Held the <strong>Git 101</strong> course
+(2026 edition) as a speaker for <strong>300+ students</strong>, covering
+essential concepts.</li>
+                            <li>Assisting the sysadmin team by learning
+<strong>Kubernetes</strong> to support the lab’s infrastructure
+management.</li>
+                          </ul>
+                      </div>
+        </div>
+              </div>
+    </section>
+    
+    <!-- ABOUT & SKILLS -->
+    <section id="about">
+      <div class="about-split">
+        <div>
+          <h2>About</h2>
+          <p>I'm Lorenzo D’Ortona, a <b>M.Sc. CS student · Distributed
+Systems &amp; Systems Programming · Go, C, Python</b> based in Milano,
+Italia. I care about clean design, practical security and building things that work well. I like open-source and learning by shipping.</p>
+          
+                    <div style="margin-top: 32px;">
+            <span class="skills-label">Education</span>
+                          <div style="margin-bottom: 16px;">
+                <div style="font-weight: 600; font-size: 0.95rem;">M.Sc.
+in Computer Science and Engineering</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">Politecnico
+di Milano · 2025 – Present</div>
+              </div>
+                          <div style="margin-bottom: 16px;">
+                <div style="font-weight: 600; font-size: 0.95rem;">Exchange
+Semester (incoming)</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">Chalmers
+University of Technology · 2026 – 2027</div>
+              </div>
+                          <div style="margin-bottom: 16px;">
+                <div style="font-weight: 600; font-size: 0.95rem;">B.Sc.
+in Computer Science and Engineering (Final grade: 99/110)</div>
+                <div style="color: var(--muted); font-size: 0.9rem;">Politecnico
+di Milano · 2022 – 2025</div>
+              </div>
+                      </div>
+                  </div>
 
-    <!-- ABOUT + HIGHLIGHTS -->
-    <section class="section about" id="about">
-      <div>
-        <h2>About</h2>
-        <p>I'm Lorenzo D’Ortona, a <b>Computer Engineering student ·
-Backend Development, Cybersecurity &amp;
-Cloud-Native</b>. I care about clean design, practical security and building things that work well. I like open-source and learning by shipping.</p>
-      </div>
-      <div>
-        <h2>Highlights</h2>
-        <ul class="list">
-                                    <li>M.Sc. in computer Science and
-Engineering – Cybersecurity Track (in progress) — Politecnico di
-Milano (2025 – Present)</li>
-                          <li>B.Sc. in Computer Science and Engineering
-(Final grade: 99/110) — Politecnico di Milano (2022 – 2025)</li>
-                                            <li>Languages:  Italian
-(Native),  English (Advanced – TOEIC 920/990)</li>
-                                <li>Programming:  Python (advanced),  C
-(intermediate),  C++,  Go,  Java,  SQL</li>
-                                <li>Automation:  Docker,  Kubernetes
-(k3s),  CI/CD (GitHub Actions),  Selenium,  Python scripting</li>
-                            </ul>
+        <div>
+          <h2>Technical Skills</h2>
+          
+                    <div class="skills-group">
+            <span class="skills-label">Programming</span>
+            <div class="tags">
+              <span class="tag">Python
+(advanced)</span><span class="tag">C
+(intermediate)</span><span class="tag">C++</span><span class="tag">Go</span><span class="tag">Java</span><span class="tag">SQL</span>
+            </div>
+          </div>
+          
+                    <div class="skills-group">
+            <span class="skills-label">Automation & Cloud</span>
+            <div class="tags">
+              <span class="tag">Docker</span><span class="tag">Kubernetes
+(k3s)</span><span class="tag">CI/CD (GitHub
+Actions)</span><span class="tag">Selenium</span>
+            </div>
+          </div>
+          
+                    <div class="skills-group">
+            <span class="skills-label">Languages</span>
+            <div class="tags">
+              <span class="tag">Italian
+(Native)</span><span class="tag">English (Advanced – TOEIC
+920/990)</span>
+            </div>
+          </div>
+          
+                    <div class="skills-group" style="margin-top: 32px; padding: 20px; background: var(--acc-soft); border-radius: 12px; border: 1px solid var(--acc);">
+            <span class="skills-label" style="color: var(--acc);">Core Competencies</span>
+            <ul style="margin: 0; padding-left: 18px; color: var(--fg); font-size: 0.9rem;">
+              <li style="margin-bottom: 8px;">Algorithms &amp; Data
+Structures</li><li style="margin-bottom: 8px;">Distributed
+Systems</li><li style="margin-bottom: 8px;">Linux</li>
+            </ul>
+          </div>
+          
+                    <div class="skills-group" style="margin-top: 24px;">
+            <span class="skills-label">Research Interests</span>
+            <div class="tags">
+              <span class="tag" style="border-color: var(--acc-soft);">Distributed
+systems</span><span class="tag" style="border-color: var(--acc-soft);">Databases
+&amp; data
+systems</span><span class="tag" style="border-color: var(--acc-soft);">Systems
+programming</span><span class="tag" style="border-color: var(--acc-soft);">Large-scale
+data processing</span>
+            </div>
+          </div>
+                  </div>
       </div>
     </section>
 
+    <!-- OPEN SOURCE -->
+        <section id="opensource">
+      <h2>Open Source Contributions</h2>
+      <div class="grid">
+                <article class="card" style="border-style: dashed;">
+          <h3>DuckDB</h3>
+          <p>Added the duckdb_secret_type_parameters() system table
+function, exposing secret-type parameter schemas via SQL (merged).</p>
+          <div class="links">
+            <a href="https://github.com/duckdb/duckdb/pull/22564" target="_blank" rel="noreferrer">View Pull Request →</a>
+          </div>
+        </article>
+                <article class="card" style="border-style: dashed;">
+          <h3>Dandelion (ETH Zürich EASL)</h3>
+          <p>Fixed ELF parser to respect p_align from program headers
+instead of a hardcoded 4 KB alignment, enabling correct mprotect memory
+protection on aarch64 systems with non-standard page sizes (merged).</p>
+          <div class="links">
+            <a href="https://github.com/eth-easl/dandelion/pull/132" target="_blank" rel="noreferrer">View Pull Request →</a>
+          </div>
+        </article>
+                <article class="card" style="border-style: dashed;">
+          <h3>Prometheus (CNCF)</h3>
+          <p>Improved test coverage for the config validation package
+from 85.4% to 88.8% (PR open).</p>
+          <div class="links">
+            <a href="https://github.com/prometheus/prometheus/pull/18599" target="_blank" rel="noreferrer">View Pull Request →</a>
+          </div>
+        </article>
+                <article class="card" style="border-style: dashed;">
+          <h3>dennwc/varint</h3>
+          <p>Added edge case and overflow tests for ProtoTag and Uvarint
+encoding, bringing coverage to 92.6% (merged).</p>
+          <div class="links">
+            <a href="https://github.com/dennwc/varint/pull/4" target="_blank" rel="noreferrer">View Pull Request →</a>
+          </div>
+        </article>
+              </div>
+    </section>
+    
     <!-- CONTACT -->
-    <section class="section" id="contatti">
-      <h2>Contact</h2>
-      <p class="meta">Based in Milano, Italia · Happy to chat 👇</p>
-      <p>
-        <a href="mailto:contact@lorenzodortona.com">contact@lorenzodortona.com</a>
-         · <a href="https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/" target="_blank" rel="noreferrer">LinkedIn</a>
-         · <a href="https://github.com/LorenzoDOrtona" target="_blank" rel="noreferrer">LorenzoDOrtona</a>
-      </p>
+    <section id="contatti" style="text-align: center; padding: 100px 0;">
+      <h2 style="font-size: 2.5rem; letter-spacing: -1px;">Let's build something together.</h2>
+      <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 40px;">Currently based in Milano,
+Italia. Open to interesting opportunities.</p>
+      <div style="display: flex; justify-content: center; gap: 24px;">
+        <a href="mailto:contact@lorenzodortona.com" class="btn primary">Email Me</a>
+        <a href="https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/" class="btn">LinkedIn</a>
+        <a href="https://github.com/LorenzoDOrtona" class="btn">GitHub</a>
+      </div>
     </section>
   </main>
 
   <footer>
     <div class="foot">
       <span>© <span id="y"></span> Lorenzo D’Ortona</span>
-      <span><a href="/privacy">Privacy</a></span>
+      <div style="display: flex; gap: 20px;">
+        <a href="/privacy">Privacy</a>
+        <a href="https://github.com/LorenzoDOrtona/cv" target="_blank">Source Code</a>
+      </div>
     </div>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
