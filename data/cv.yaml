@@ -125,7 +125,7 @@ projects:
   - name: "Galaxy Trucker"
     stack: "Java · Java RMI · Socket · Java FX GUI · MVC pattern"
     summary: "Java client-server implementation of the board game Galaxy Trucker using RMI and sockets, with JavaFX GUI and MVC architecture. Team project focused on networking, concurrency, and software design."
-    cv: true
+    cv: false
     links:
       - label: "Repo"
         url: "https://github.com/LorenzoDOrtona/Galaxy-Trucker"
@@ -160,10 +160,10 @@ awards:
 certifications:
   - when: "2024"
     name: "TOEIC English Test – Score: 920/990"
-    cv: true
+    cv: false
   - when: "2024-01"
     name: "CCNA: Introduction to Networks"
-    cv: true
+    cv: false
   - when: "2022-03"
     name: "Game Theory (PoliCollege – pre-admission, PoliMi)"
     cv: false
