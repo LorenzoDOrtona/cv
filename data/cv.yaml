@@ -86,6 +86,10 @@ open_source:
     url: "https://github.com/duckdb/duckdb/pull/22564"
     description: "Added the duckdb_secret_type_parameters() system table function, exposing secret-type parameter schemas via SQL (merged)."
     cv: true
+  - project: "Dandelion (ETH Zürich EASL)"
+    url: "https://github.com/eth-easl/dandelion/pull/132"
+    description: "Fixed ELF parser to respect p_align from program headers instead of a hardcoded 4 KB alignment, enabling correct mprotect memory protection on aarch64 systems with non-standard page sizes (merged)."
+    cv: true
   # Kept on the site only: low-impact (test coverage), not worth PDF space next to DuckDB.
   - project: "Prometheus (CNCF)"
     url: "https://github.com/prometheus/prometheus/pull/18599"
