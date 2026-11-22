@@ -40,7 +40,7 @@
 {\small \textit{$headline$}}\\[3pt]
 {\footnotesize
 $if(location)$\faMapMarker*~$location$ \quad$endif$
-$if(email)$\faEnvelope~\href{mailto:$email$}{$email$} \quad$endif$
+$if(public_email)$\faEnvelope~\href{mailto:$public_email$}{$public_email$} \quad$endif$
 $if(github)$\faGithub~\href{$github.url$}{$github.label$}$endif$
 $if(linkedin)$ \quad \faLinkedin~\href{$linkedin.url$}{$linkedin.label$}$endif$
 $if(leetcode)$ \quad \faCode~\href{$leetcode.url$}{$leetcode.label$}$endif$
@@ -58,6 +58,20 @@ $if(it.relevant)$
 \vspace{-4pt}
 {\footnotesize \textbf{Relevant courses:} $for(it.relevant)$$it.name$$if(it.grade)$ ($it.grade$)$endif$$sep$ \textperiodcentered{} $endfor$} \par \vspace{2pt}
 $endif$
+$if(it.honors)$
+\vspace{-2pt}{\footnotesize \textbf{Honors:} $it.honors$} \par \vspace{2pt}
+$endif$
+$endif$
+$endfor$
+$endif$
+
+% --- OPEN SOURCE ---
+$if(open_source)$
+\section*{Open Source}
+$for(open_source)$
+$if(it.cv)$
+\textbf{$it.project$} \hfill {\footnotesize \href{$it.url$}{\faExternalLink*~PR}} \\
+{\small $it.description$} \par \vspace{1pt}
 $endif$
 $endfor$
 $endif$
@@ -81,30 +95,6 @@ $endif$
 $endfor$
 $endif$
 
-% --- SKILLS ---
-$if(skills)$
-\section*{Skills}
-\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=1pt]
-    \item[] \textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$
-    \item[] \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$
-    $if(skills.web)$\item[] \textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$$endif$
-    \item[] \textbf{Core / Soft Skills:} $for(skills.core)$$it$$sep$, $endfor$
-    $if(skills.research_interests)$\item[] \textbf{Research Interests:} $for(skills.research_interests)$$it$$sep$, $endfor$$endif$
-    \item[] \textbf{Languages:} $for(skills.languages)$$it$$sep$, $endfor$
-\end{itemize}
-$endif$
-
-% --- OPEN SOURCE ---
-$if(open_source)$
-\section*{Open Source}
-$for(open_source)$
-$if(it.cv)$
-\textbf{$it.project$} \hfill {\footnotesize \href{$it.url$}{\faExternalLink*~PR}} \\
-{\small $it.description$} \par \vspace{1pt}
-$endif$
-$endfor$
-$endif$
-
 % --- PROJECTS ---
 $if(projects)$
 \section*{Projects}
@@ -123,29 +113,19 @@ $endif$
 $endfor$
 $endif$
 
-% --- AWARDS & CERTIFICATIONS ---
-\begin{minipage}[t]{0.48\textwidth}
-$if(awards)$
-\section*{Awards}
-$for(awards)$
-$if(it.cv)$
-{\small \textbf{$it.when$ — $it.title$}\\
-\footnotesize $it.description$} \par \vspace{2pt}
+% --- SKILLS ---
+$if(skills)$
+\section*{Skills}
+\begin{itemize}[leftmargin=0pt, labelsep=0pt, itemsep=1pt]
+    \item[] \textbf{Programming:} $for(skills.programming)$$it$$sep$, $endfor$
+    \item[] \textbf{Automation \& DevOps:} $for(skills.automation)$$it$$sep$, $endfor$
+    $if(skills.web)$\item[] \textbf{Web \& Frontend:} $for(skills.web)$$it$$sep$, $endfor$$endif$
+    $if(skills.research_interests)$\item[] \textbf{Research Interests:} $for(skills.research_interests)$$it$$sep$, $endfor$$endif$
+    \item[] \textbf{Languages:} $for(skills.languages)$$it$$sep$, $endfor$
+\end{itemize}
 $endif$
-$endfor$
-$endif$
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\textwidth}
-$if(certifications)$
-\section*{Certifications}
-$for(certifications)$
-$if(it.cv)$
-{\small \textbf{$it.when$} — \textit{$it.name$}} \par \vspace{2pt}
-$endif$
-$endfor$
-$endif$
-\end{minipage}
+
+% (Awards spostato nella riga Honors della laurea triennale)
 
 \end{document}
 

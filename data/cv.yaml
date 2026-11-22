@@ -11,7 +11,7 @@ leetcode: { url: "https://leetcode.com/u/lorenzodortona/", label: "LeetCode" }
 
 summary:
   - "M.Sc. Computer Science and Engineering student at Politecnico di Milano, with an exchange semester at Chalmers University of Technology (2026–27). Builds software systems end to end, from Linux kernel drivers to distributed backends deployed on self-hosted Kubernetes."
-  - "Merged contributor to DuckDB. Interested in building distributed systems, databases, and large-scale data processing."
+  - "Merged contributor to DuckDB and to Dandelion (ETH Zürich EASL). Interested in building distributed systems, databases, and large-scale data processing."
 
 education:
   - degree: "M.Sc. in Computer Science and Engineering"
@@ -33,7 +33,7 @@ education:
       - name: "Software Engineering 2"
         grade: "28/30"
         learned: ["Distributed systems design, advanced architectural patterns, and rigorous requirements engineering."]
-  - degree: "Exchange Semester (incoming)"
+  - degree: "Exchange Student"
     school: "Chalmers University of Technology"
     city: "Göteborg, Sweden"
     period: "2026 – 2027"
@@ -47,6 +47,7 @@ education:
     city: "Milano"
     period: "2022 – 2025"
     cv: true
+    honors: "Angelini Industries Merit Award, 2022 and 2023 (best-performing student, two consecutive years)"
     relevant:
       - name: "Software Engineering project" 
         grade: "30/30"
@@ -69,8 +70,7 @@ experience:
     period: "Feb 2025 – Sep 2025"
     cv: true
     bullets:
-      - "Developed and updated over **50 Python integrations** between **Splunk** and **Dynatrace**, reducing API calls by **30%** through logic optimization."
-      - "Used **Selenium** for automation tasks and validation of performance workflows."
+      - "Developed and updated **50+ Python integrations** between **Splunk** and **Dynatrace**, reducing API calls by **30%**."
       - "Automated key steps of recurring report-generation workflows, **eliminating the manual work** for those reports."
   - title: "Voting and active member"
     company: "Politecnico Open Unix Labs (POuL)"
@@ -88,7 +88,11 @@ open_source:
     cv: true
   - project: "Dandelion (ETH Zürich EASL)"
     url: "https://github.com/eth-easl/dandelion/pull/132"
-    description: "Fixed ELF parser to respect p_align from program headers instead of a hardcoded 4 KB alignment, enabling correct mprotect memory protection on aarch64 systems with non-standard page sizes (merged)."
+    description: "Made the ELF loader honor p_align instead of a hardcoded 4 KB, fixing mprotect on aarch64 kernels with larger pages (merged)."
+    cv: true
+  - project: "Dandelion (ETH Zürich EASL)"
+    url: "https://github.com/eth-easl/dandelion/pull/139"
+    description: "Diagnosed a constant ~40 ms stall on multi-item responses (Nagle + delayed ACK) and fixed it with TCP_NODELAY (merged)."
     cv: true
   # Kept on the site only: low-impact (test coverage), not worth PDF space next to DuckDB.
   - project: "Prometheus (CNCF)"
@@ -105,7 +109,7 @@ projects:
   # TODO: add one concrete number or finding (e.g. concurrent games tested, deploy time, failure behavior).
   - name: "Tris Inception — Distributed Game Engine"
     stack: "Go · React · Docker · Kubernetes (k3s) · CI/CD"
-    summary: "Designed and deployed a distributed game engine in Go, exploring stateless backend architecture, container orchestration with self-hosted Kubernetes (k3s), and fully automated GitOps deployment via GitHub Actions. Features Traefik ingress and automated TLS certificate provisioning."
+    summary: "Distributed game engine in Go with a stateless backend, deployed on self-hosted Kubernetes (k3s) through a GitOps pipeline (GitHub Actions), with Traefik ingress and automated TLS."
     cv: true
     links:
       - label: "Demo"
@@ -155,7 +159,7 @@ awards:
     title: "Angelini Industries Merit Award (2x)"
     description: "Awarded as *Best Performing Student* for two consecutive years."
     link: "https://bestr.it/award/show/POesFfFbR-aHms2YddxMyg"
-    cv: true
+    cv: false
 
 certifications:
   - when: "2024"
