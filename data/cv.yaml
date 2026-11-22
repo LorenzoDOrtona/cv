@@ -6,6 +6,13 @@ github:   { url: "https://github.com/LorenzoDOrtona", label: "LorenzoDOrtona" }
 linkedin: { url: "https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/", label: "LinkedIn" }
 leetcode: { url: "https://leetcode.com/u/lorenzodortona/", label: "LeetCode" }
 
+# Site-only fields (the PDF template ignores them)
+site_location: "Göteborg, Sweden (exchange) · Milano, Italy"
+tagline: "Systems and data infrastructure: runtimes, databases and distributed systems."
+about: "I'm a Computer Science and Engineering master's student at Politecnico di Milano, currently on exchange at Chalmers. I like working close to the system (kernels, runtimes, data engines) and finding out *why* something is slow or broken before changing it. Recently I've been contributing to Dandelion, an elastic serverless runtime from ETH Zürich's EASL, and to DuckDB."
+contact_note: "Open to research collaborations and internships in systems and data infrastructure. Email is the fastest way to reach me."
+cv_pdf: "cv.pdf"
+
 # The 'cv' flag determines if an item appears in the PDF (true) or only on the site (false/missing).
 # This helps keep the PDF CV within a single page.
 
