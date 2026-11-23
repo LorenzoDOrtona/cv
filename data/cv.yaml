@@ -7,9 +7,9 @@ linkedin: { url: "https://www.linkedin.com/in/lorenzo-d-ortona-b4b979333/", labe
 leetcode: { url: "https://leetcode.com/u/lorenzodortona/", label: "LeetCode" }
 
 # Site-only fields (the PDF template ignores them)
-site_location: "Göteborg, Sweden (exchange) · Milano, Italy"
+site_location: "Milano, Italy · Göteborg, Sweden (exchange, Jan–Jun 2027)"
 tagline: "Systems and data infrastructure: runtimes, databases and distributed systems."
-about: "I'm a Computer Science and Engineering master's student at Politecnico di Milano, currently on exchange at Chalmers. I like working close to the system (kernels, runtimes, data engines) and finding out *why* something is slow or broken before changing it. Recently I've been contributing to Dandelion, an elastic serverless runtime from ETH Zürich's EASL, and to DuckDB."
+about: "I'm a Computer Science and Engineering master's student at Politecnico di Milano, and I'll be on exchange at Chalmers from January to June 2027. I like working close to the system (kernels, runtimes, data engines) and finding out *why* something is slow or broken before changing it. Recently I've been contributing to Dandelion, an elastic serverless runtime from ETH Zürich's EASL, and to DuckDB."
 contact_note: "Open to research collaborations and internships in systems and data infrastructure. Email is the fastest way to reach me."
 cv_pdf: "cv.pdf"
 
@@ -17,7 +17,7 @@ cv_pdf: "cv.pdf"
 # This helps keep the PDF CV within a single page.
 
 summary:
-  - "M.Sc. Computer Science and Engineering student at Politecnico di Milano, with an exchange semester at Chalmers University of Technology (2026–27). Builds software systems end to end, from Linux kernel drivers to distributed backends deployed on self-hosted Kubernetes."
+  - "M.Sc. Computer Science and Engineering student at Politecnico di Milano, with an upcoming exchange semester at Chalmers University of Technology (Jan–Jun 2027). Builds software systems end to end, from Linux kernel drivers to distributed backends deployed on self-hosted Kubernetes."
   - "Merged contributor to DuckDB and to Dandelion (ETH Zürich EASL). Interested in building distributed systems, databases, and large-scale data processing."
 
 education:
@@ -43,7 +43,7 @@ education:
   - degree: "Exchange Student"
     school: "Chalmers University of Technology"
     city: "Göteborg, Sweden"
-    period: "2026 – 2027"
+    period: "Jan 2027 – Jun 2027"
     cv: true
     relevant:
       - name: "Computational Techniques for Large-Scale Data"
